@@ -1,3 +1,2 @@
 
-
-For details, please see http://ics-software-engineering.github.io/meteor-application-template-react/
+This is the repository for RengimaFlea, an ICS314 project build during the spring 2020 semester.
