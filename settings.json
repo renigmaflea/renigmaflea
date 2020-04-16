@@ -1,7 +1,0 @@
-{
-  "galaxy.meteor.com": {
-     "env": {
-       "MONGO_URL": "mongodb+srv://admin:<password>@cluster0-kormg.mongodb.net/test?retryWrites=true&w=majority"
-     }
-   }
-}
