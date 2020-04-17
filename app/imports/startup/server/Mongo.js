@@ -1,18 +1,18 @@
 import { Meteor } from 'meteor/meteor';
-import { Items } from '../../api/item/Items.js';
+import { Stuffs } from '../../api/stuff/Stuff.js';
 
 /* eslint-disable no-console */
 
 /** Initialize the database with a default data document. */
-function addContact(data) {
-  console.log(`  Adding: ${data.lastName} (${data.owner})`);
-  Items.insert(data);
+function addData(data) {
+  console.log(`  Adding: ${data.name} (${data.owner})`);
+  Stuffs.insert(data);
 }
 
 /** Initialize the collection if empty. */
-if (Items.find().count() === 0) {
-  if (Meteor.settings.defaultContacts) {
-    console.log('Creating Contact data.');
-    Meteor.settings.defaultContacts.map(data => addContact(data));
+if (Stuffs.find().count() === 0) {
+  if (Meteor.settings.defaultData) {
+    console.log('Creating default data.');
+    Meteor.settings.defaultData.map(data => addData(data));
   }
 }

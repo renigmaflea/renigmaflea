@@ -1,99 +1,62 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
-import 'semantic-ui-css/semantic.css';
-import { Roles } from 'meteor/alanning:roles';
-import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
-import Landing from '../pages/Landing';
-import ListStuff from '../pages/ListStuff';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
-import ListCategories from '../pages/ListCategories';
-import AddStuff from '../pages/AddStuff';
-import EditStuff from '../pages/EditStuff';
-import NotFound from '../pages/NotFound';
-import Signin from '../pages/Signin';
-import Signup from '../pages/Signup';
-import Signout from '../pages/Signout';
-import AboutUs from '../pages/AboutUs';
-import Profile from '../pages/Profile';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Container, Divider, Header, Loader, Card } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import { Stuffs } from '../../api/stuff/Stuff';
+import CategoriesCard from '../components/CategoriesCard';
 
-/** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
-class App extends React.Component {
+/** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+class ListStuff extends React.Component {
+
+  /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+  }
+
+  /** Render the page once subscriptions have been received. */
+  renderPage() {
+    const titleStyle = {
+      color: '#0e9e71',
+      textDecoration: 'underline',
+      fontWeight: 'bold',
+    };
+
+    const backgroundStyle = {
+      backgroundImage: `url(${'/images/pattern.jpg'})`,
+      backgroundSize: 'fit',
+    };
+
     return (
-        <Router>
-          <div>
-            <NavBar/>
-            <Switch>
-              <Route exact path="/" component={Landing}/>
-              <Route path="/signin" component={Signin}/>
-              <Route path="/signup" component={Signup}/>
-              <Route path="/about" component={AboutUs}/>
-              <Route path="/profile" component={Profile}/>
-              <ProtectedRoute path="/list" component={ListStuff}/>
-              <ProtectedRoute path="/listcat" component={ListCategories}/>
-              <ProtectedRoute path="/add" component={AddStuff}/>
-              <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
-              <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
-              <ProtectedRoute path="/signout" component={Signout}/>
-              <Route component={NotFound}/>
-            </Switch>
-            <Footer/>
-          </div>
-        </Router>
+        <div style={backgroundStyle}>
+          <Container>
+            <Divider hidden/>
+            <Header as='h1' textAlign='center' style={titleStyle}>Categories</Header>
+            <Card.Group> {/* replace with actual collection mapping */}
+              <CategoriesCard name='Moped' url='moped' image='/images/categoriesPic/bike.jpg'/>
+              <CategoriesCard name='Mini Fridge' url='minifridge' image='/images/categoriesPic/minifridge.jpeg'/>
+              <CategoriesCard name='Fan' url='fan' image='/images/categoriesPic/fan.jpg'/>
+              <CategoriesCard name='Macbook' url='mac' image='/images/categoriesPic/mac.jpg'/>
+              <CategoriesCard name='Server' url='server' image='/images/categoriesPic/server.jpg'/>
+            </Card.Group>
+          </Container>
+        </div>
     );
   }
 }
 
-/**
- * ProtectedRoute (see React Router v4 sample)
- * Checks for Meteor login before routing to the requested page, otherwise goes to signin page.
- * @param {any} { component: Component, ...rest }
- */
-const ProtectedRoute = ({ component: Component, ...rest }) => (
-    <Route
-        {...rest}
-        render={(props) => {
-          const isLogged = Meteor.userId() !== null;
-          return isLogged ?
-              (<Component {...props} />) :
-              (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
-              );
-        }}
-    />
-);
-
-/**
- * AdminProtectedRoute (see React Router v4 sample)
- * Checks for Meteor login and admin role before routing to the requested page, otherwise goes to signin page.
- * @param {any} { component: Component, ...rest }
- */
-const AdminProtectedRoute = ({ component: Component, ...rest }) => (
-    <Route
-        {...rest}
-        render={(props) => {
-          const isLogged = Meteor.userId() !== null;
-          const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
-          return (isLogged && isAdmin) ?
-              (<Component {...props} />) :
-              (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
-              );
-        }}
-    />
-);
-
-/** Require a component and location to be passed to each ProtectedRoute. */
-ProtectedRoute.propTypes = {
-  component: PropTypes.func.isRequired,
-  location: PropTypes.object,
+/** Require an array of Stuff documents in the props. */
+ListStuff.propTypes = {
+  stuffs: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
 };
 
-/** Require a component and location to be passed to each AdminProtectedRoute. */
-AdminProtectedRoute.propTypes = {
-  component: PropTypes.func.isRequired,
-  location: PropTypes.object,
-};
-
-export default App;
+/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
+export default withTracker(() => {
+  // Get access to Stuff documents.
+  const subscription = Meteor.subscribe('Stuff');
+  return {
+    stuffs: Stuffs.find({}).fetch(),
+    ready: subscription.ready(),
+  };
+})(ListStuff);

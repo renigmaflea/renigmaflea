@@ -7,14 +7,11 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import ListContacts from '../pages/ListItems';
-import ListContactsAdmin from '../pages/ListItemsAdmin';
+import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import ListCategories from '../pages/ListCategories';
 import AddStuff from '../pages/AddStuff';
 import EditStuff from '../pages/EditStuff';
-import AddItem from '../pages/AddItem';
-import EditContact from '../pages/EditItem';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -35,11 +32,11 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               <Route path="/about" component={AboutUs}/>
               <Route path="/profile" component={Profile}/>
-              <ProtectedRoute path="/list" component={ListContacts}/>
+              <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/listcat" component={ListCategories}/>
-              <ProtectedRoute path="/add" component={AddItem}/>
-              <ProtectedRoute path="/edit/:_id" component={EditContact}/>
-              <AdminProtectedRoute path="/admin" component={ListContactsAdmin}/>
+              <ProtectedRoute path="/add" component={AddStuff}/>
+              <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
             </Switch>
