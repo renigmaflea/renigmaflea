@@ -1,9 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Image, Loader } from 'semantic-ui-react';
+import { Container, Header, Loader } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
+import { CategoriesCard } 
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListStuff extends React.Component {
@@ -15,6 +16,12 @@ class ListStuff extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const style = { backgroundImage: `url(${'/images/mockcat.png'})`,
+      backgroundSize: 'cover',
+      color: '#0e9e71',
+      textDecoration: 'underline'
+    }
+
     return (
         // <Container>
         //   <Header as="h2" textAlign="center">List Stuff</Header>
@@ -32,7 +39,10 @@ class ListStuff extends React.Component {
         //     </Table.Body>
         //   </Table>
         // </Container>
-        <Image src="/images/mockcat.png" fluid/>
+        <Container>
+          <Header as='h1' textAlign='center' style={style}>Categories</Header>
+
+        </Container>
     );
   }
 }
