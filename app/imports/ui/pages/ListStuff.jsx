@@ -54,7 +54,7 @@ class ListStuff extends React.Component {
               <List.Content>
                 <List.Header as='a'>Daniel FLorenco</List.Header>
                 <List.Description>
-                  Senior Developer
+                  Senior President Developer
                 </List.Description>
               </List.Content>
             </List.Item>
@@ -62,15 +62,16 @@ class ListStuff extends React.Component {
               <Icon color='yellow' name='user' />
               <List.Content>
                 <List.Header as='a'>Andrew Emmons</List.Header>
-                <List.Description>Coding Program Trainer</List.Description>
+                <List.Description>Head of Computer Hardware Department</List.Description>
               </List.Content>
             </List.Item>
           </List>
             </GridColumn>
             <GridColumn>
-              <p>Hello my friends our goal is to sell anything and everything.</p>
+              <p>Our goal was to create a safe and regulated trading platform designed for college students. Other trading websites and forums....</p>
             </GridColumn>
           </Grid>
+          <Header as="h2" textAlign="center">User Policy</Header>
         </Container>
     );
   }
