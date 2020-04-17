@@ -5,18 +5,10 @@ import { Grid, Image } from 'semantic-ui-react';
 class Landing extends React.Component {
   render() {
     return (
-        <Grid verticalAlign='middle' textAlign='center' container>
+        <div>
+          <Image fluid src="/images/UHbackground.png"/>
+        </div>
 
-          <Grid.Column width={4}>
-            <Image size='small' circular src="/images/uh.jpeg"/>
-          </Grid.Column>
-
-          <Grid.Column width={8}>
-            <h1>Welcome to Renigma Flea</h1>
-            <p>The best app for buying, selling, and trading!</p>
-          </Grid.Column>
-
-        </Grid>
     );
   }
 }

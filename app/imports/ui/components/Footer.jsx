@@ -9,9 +9,9 @@ class Footer extends React.Component {
     return (
           <footer style={footerStyle}>
             <div style={divStyle} className="ui center aligned container">
-              <h4>RenigmaFlea LLC</h4>
+              <h4>Rainbow Retailers</h4>
                 ICS 314 Final Project<br />
-                Copyright 2027 <br />
+                The best place on the Internet <br />
             </div>
             <div style={divStyle} className="ui center aligned container">
               <br />
