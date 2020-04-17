@@ -1,26 +1,30 @@
 import React from 'react';
-import { Card, Image, Button } from 'semantic-ui-react';
-// import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Card, Image, Button, Header } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import { withRouter, Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class CategoriesCard extends React.Component {
+
+
   render() {
+    const textStyle = { fontWeight: '900px' };
+
     return (
         <Card centered>
           <Card.Content>
             <Image
                 floated='right'
-                size='mini'
+                size='medium'
+                src={this.props.image}
             />
-            <Card.Header>Header</Card.Header>
-            <Card.Meta>Meta</Card.Meta>
-            <Card.Description>
-              Description
-            </Card.Description>
           </Card.Content>
-          <Card.Content extra>
-            <Button>Test</Button>
+          <Card.Content textAlign='center' extra style={{ fontSize: '20px' }}>
+            <Link to='/'> {/* change to link of categories */}
+              <Button color='green' fluid={true}>
+                <Header as='h1' inverted={true} style={textStyle}>{this.props.name}</Header>
+              </Button>
+            </Link>
           </Card.Content>
         </Card>
     );
@@ -29,6 +33,9 @@ class CategoriesCard extends React.Component {
 
 /** Require a document to be passed to this component. */
 CategoriesCard.propTypes = {
+  name: PropTypes.object.isRequired,
+  url: PropTypes.object.isRequired,
+  image: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
