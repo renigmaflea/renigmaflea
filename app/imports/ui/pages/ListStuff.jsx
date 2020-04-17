@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader } from 'semantic-ui-react';
+import { Container, List, Header, Loader, Grid, ListItem, Icon, GridColumn } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
@@ -18,20 +18,59 @@ class ListStuff extends React.Component {
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center">List Stuff</Header>
-          <Table celled>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>Quantity</Table.HeaderCell>
-                <Table.HeaderCell>Condition</Table.HeaderCell>
-                <Table.HeaderCell>Edit</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {this.props.stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
-            </Table.Body>
-          </Table>
+          <Header as="h2" textAlign="center">Our Team and Mission</Header>
+          <Grid columns={2} >
+            <GridColumn>
+          <List>
+            <List.Item>
+              <Icon color='red' name='user' />
+              <List.Content>
+                <List.Header as='a'>Justin Wong</List.Header>
+                <List.Description>
+                  Senior Director of Technology
+                </List.Description>
+              </List.Content>
+            </List.Item>
+            <List.Item>
+              <Icon color='blue' name='user' />
+              <List.Content>
+                <List.Header as='a'>Dean Fujimoto</List.Header>
+                <List.Description>
+                  Head of Human Resources Department
+                </List.Description>
+              </List.Content>
+            </List.Item>
+            <List.Item>
+              <Icon color='green' name='user' />
+              <List.Content>
+                <List.Header as='a'>Patima Poochai</List.Header>
+                <List.Description>
+                  Director of HIM & Coding Operations
+                </List.Description>
+              </List.Content>
+            </List.Item>
+            <List.Item>
+              <Icon color='purple' name='user' />
+              <List.Content>
+                <List.Header as='a'>Daniel FLorenco</List.Header>
+                <List.Description>
+                  Senior Developer
+                </List.Description>
+              </List.Content>
+            </List.Item>
+            <List.Item>
+              <Icon color='yellow' name='user' />
+              <List.Content>
+                <List.Header as='a'>Andrew Emmons</List.Header>
+                <List.Description>Coding Program Trainer</List.Description>
+              </List.Content>
+            </List.Item>
+          </List>
+            </GridColumn>
+            <GridColumn>
+              <p>Hello my friends our goal is to sell anything and everything.</p>
+            </GridColumn>
+          </Grid>
         </Container>
     );
   }
