@@ -20,7 +20,7 @@ class AboutUs extends React.Component {
           <Header as="h2" textAlign="center">Our Team and Mission</Header>
           <Grid columns={2} >
             <GridColumn>
-          <List> 
+          <List>
             <List.Item>
               <Icon color='red' name='user' />
               <List.Content>
