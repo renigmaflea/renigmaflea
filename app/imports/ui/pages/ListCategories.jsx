@@ -4,8 +4,11 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Container, Divider, Header, Loader, Card } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
-import CategoriesCard from '../components/CategoriesCard';
 import MCategoriesCard from '../components/MCategoriesCard';
+import MFCategoriesCard from '../components/MFCategoriesCard';
+import CategoriesCard from '../components/CategoriesCard';
+import MBCategoriesCard from '../components/MBCategoriesCard';
+import ServersCategoriesCard from '../components/ServersCategoriesCard';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListStuff extends React.Component {
@@ -34,11 +37,11 @@ class ListStuff extends React.Component {
             <Divider hidden/>
             <Header as='h1' textAlign='center' style={titleStyle}>Categories</Header>
             <Card.Group> {/* replace with actual collection mapping */}
-              <MCategoriesCard name='Moped' url='/ListMopeds.jsx' image='/images/categoriesPic/bike.jpg'/>
-              <CategoriesCard name='Mini Fridge' url='minifridge' image='/images/categoriesPic/minifridge.jpeg'/>
+              <MCategoriesCard name='Moped' url='Moped' image='/images/categoriesPic/bike.jpg'/>
+              <MFCategoriesCard name='Mini Fridge' url='minifridge' image='/images/categoriesPic/minifridge.jpeg'/>
               <CategoriesCard name='Fan' url='fan' image='/images/categoriesPic/fan.jpg'/>
-              <CategoriesCard name='Macbook' url='mac' image='/images/categoriesPic/mac.jpg'/>
-              <CategoriesCard name='Server' url='server' image='/images/categoriesPic/server.jpg'/>
+              <MBCategoriesCard name='Macbook' url='mac' image='/images/categoriesPic/mac.jpg'/>
+              <ServersCategoriesCard name='Server' url='server' image='/images/categoriesPic/server.jpg'/>
             </Card.Group>
           </Container>
         </div>

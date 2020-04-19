@@ -9,11 +9,7 @@ class Moped extends React.Component {
     return (
         <Card centered>
           <Card.Content>
-            <Image
-                floated='right'
-                size='mini'
-                src={this.props.moped.image}
-            />
+
             <Card.Header>{this.props.moped.firstName} {this.props.moped.lastName}</Card.Header>
             <Card.Meta>{this.props.moped.address}</Card.Meta>
             <Card.Description>

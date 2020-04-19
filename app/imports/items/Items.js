@@ -10,9 +10,13 @@ const ItemSchema = new SimpleSchema({
   firstName: String,
   lastName: String,
   address: String,
-  image: String,
   description: String,
   owner: String,
+  category: {
+    type: String,
+    allowedValues: ['Moped', 'Mini Fridge', 'Fan', 'Macbook', 'Server'],
+    defaultValue: 'Moped',
+  },
 
 }, { tracker: Tracker });
 

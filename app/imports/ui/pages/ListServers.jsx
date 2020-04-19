@@ -7,7 +7,7 @@ import Moped from '/imports/ui/components/Moped';
 import { Items } from '../../items/Items';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ListMopeds extends React.Component {
+class ListServers extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -18,7 +18,7 @@ class ListMopeds extends React.Component {
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center">List Mopeds</Header>
+          <Header as="h2" textAlign="center">Here are our Servers:</Header>
           <Card.Group>
             {this.props.items.map((moped, index) => <Moped key={index} moped={moped}/>)}
           </Card.Group>
@@ -28,7 +28,7 @@ class ListMopeds extends React.Component {
 }
 
 /** Require an array of Stuff documents in the props. */
-ListMopeds.propTypes = {
+ListServers.propTypes = {
   stuffs: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -38,7 +38,7 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('Items');
   return {
-    items: Items.find({category: 'Moped'}).fetch(),
+    items: Items.find({category: 'Server'}).fetch(),
     ready: subscription.ready(),
   };
-})(ListMopeds);
+})(ListServers);
