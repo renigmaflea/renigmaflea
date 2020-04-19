@@ -9,7 +9,7 @@ const Reports = new Mongo.Collection('Reports');
 const ReportsSchema = new SimpleSchema({
   reason: String,
   comment: String,
-  id: String,
+  itemID: String,
   reporter: String,
 }, { tracker: Tracker });
 
