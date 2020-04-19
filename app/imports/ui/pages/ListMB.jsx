@@ -20,7 +20,7 @@ class ListMB extends React.Component {
         <Container>
           <Header as="h2" textAlign="center">Here are our Macbooks:</Header>
           <Card.Group>
-            {this.props.items.map((sc, index) => <SC key={index} sc={mopescd}/>)}
+            {this.props.items.map((sc, index) => <SC key={index} sc={sc}/>)}
           </Card.Group>
         </Container>
     );
