@@ -33,8 +33,8 @@ class AdminReports extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 AdminReports.propTypes = {
-  contacts: PropTypes.array.isRequired,
-  notes: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired,
+  reports: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
