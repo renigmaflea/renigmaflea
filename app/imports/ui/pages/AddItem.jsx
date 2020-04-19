@@ -14,7 +14,6 @@ const formSchema = new SimpleSchema({
   address: String,
   image: String,
   description: String,
-  owner: String,
 });
 
 /** Renders the Page for adding a document. */
