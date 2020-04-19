@@ -13,6 +13,8 @@ import ListStuffAdmin from '../pages/ListStuffAdmin';
 import ListCategories from '../pages/ListCategories';
 import AddStuff from '../pages/AddStuff';
 import EditStuff from '../pages/EditStuff';
+import AddItem from '../pages/AddItem';
+import EditItem from '../pages/EditItem';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -34,10 +36,10 @@ class App extends React.Component {
               <Route path="/profile" component={Profile}/>
               <Route path="/about" component={AboutUs}/>
               <ProtectedRoute path="/listprof" component={ListProfile}/>
-              <ProtectedRoute path="/listitems" component={ListItems}/>
+              <ProtectedRoute path="/list" component={ListItems}/>
               <ProtectedRoute path="/listcat" component={ListCategories}/>
-              <ProtectedRoute path="/add" component={AddStuff}/>
-              <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <ProtectedRoute path="/add" component={AddItem}/>
+              <ProtectedRoute path="/edit/:_id" component={EditItem}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
