@@ -12,7 +12,7 @@ const ItemSchema = new SimpleSchema({
   address: String,
   image: String,
   description: String,
-  owner: String
+  owner: String,
 
 }, { tracker: Tracker });
 

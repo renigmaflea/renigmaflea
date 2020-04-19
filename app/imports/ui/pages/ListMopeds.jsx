@@ -3,8 +3,8 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Card, Header, Loader, Grid, ListItem, Icon, GridColumn } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Stuffs } from '../../api/stuff/Stuff';
 import Moped from '/imports/ui/components/Moped';
+import { Items } from '../../items/Items';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListMopeds extends React.Component {
@@ -20,7 +20,7 @@ class ListMopeds extends React.Component {
         <Container>
           <Header as="h2" textAlign="center">List Mopeds</Header>
           <Card.Group>
-            {this.contacts.map((moped, index) => <Moped key={index} moped={moped}/>)}
+            {this.props.items.map((moped, index) => <Moped key={index} moped={moped}/>)}
           </Card.Group>
         </Container>
     );
@@ -36,9 +36,9 @@ ListMopeds.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Stuff');
+  const subscription = Meteor.subscribe('Items');
   return {
-    stuffs: Stuffs.find({}).fetch(),
+    items: Items.find({lastName: 'Casanova'}).fetch(),
     ready: subscription.ready(),
   };
 })(ListMopeds);

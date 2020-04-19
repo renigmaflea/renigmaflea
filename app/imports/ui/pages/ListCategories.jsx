@@ -5,6 +5,7 @@ import { Container, Divider, Header, Loader, Card } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
 import CategoriesCard from '../components/CategoriesCard';
+import MCategoriesCard from '../components/MCategoriesCard';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListStuff extends React.Component {
@@ -33,7 +34,7 @@ class ListStuff extends React.Component {
             <Divider hidden/>
             <Header as='h1' textAlign='center' style={titleStyle}>Categories</Header>
             <Card.Group> {/* replace with actual collection mapping */}
-              <CategoriesCard name='Moped' url='moped' image='/images/categoriesPic/bike.jpg'/>
+              <MCategoriesCard name='Moped' url='/ListMopeds.jsx' image='/images/categoriesPic/bike.jpg'/>
               <CategoriesCard name='Mini Fridge' url='minifridge' image='/images/categoriesPic/minifridge.jpeg'/>
               <CategoriesCard name='Fan' url='fan' image='/images/categoriesPic/fan.jpg'/>
               <CategoriesCard name='Macbook' url='mac' image='/images/categoriesPic/mac.jpg'/>

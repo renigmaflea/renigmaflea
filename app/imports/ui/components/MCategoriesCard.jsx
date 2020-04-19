@@ -20,11 +20,11 @@ class CategoriesCard extends React.Component {
             />
           </Card.Content>
           <Card.Content textAlign='center' extra style={{ fontSize: '20px' }}>
-            <Link to='/'> {/* change to link of categories */}
-            <Button color='green' fluid={true}>
-              <Header as='h1' inverted={true} style={textStyle}>{this.props.name}</Header>
-            </Button>
-          </Link>
+            <Link to='/listmop'> {/* change to link of categories */}
+              <Button color='green' fluid={true}>
+                <Header as='h1' inverted={true} style={textStyle}>{this.props.name}</Header>
+              </Button>
+            </Link>
           </Card.Content>
         </Card>
     );
