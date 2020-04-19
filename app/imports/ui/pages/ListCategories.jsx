@@ -37,7 +37,7 @@ class ListStuff extends React.Component {
             <Divider hidden/>
             <Header as='h1' textAlign='center' style={titleStyle}>Categories</Header>
             <Card.Group> {/* replace with actual collection mapping */}
-              <MCategoriesCard name='Moped' url='Moped' image='/images/categoriesPic/bike.jpg'/>
+              <MCategoriesCard name='Moped' url='SC' image='/images/categoriesPic/bike.jpg'/>
               <MFCategoriesCard name='Mini Fridge' url='minifridge' image='/images/categoriesPic/minifridge.jpeg'/>
               <CategoriesCard name='Fan' url='fan' image='/images/categoriesPic/fan.jpg'/>
               <MBCategoriesCard name='Macbook' url='mac' image='/images/categoriesPic/mac.jpg'/>

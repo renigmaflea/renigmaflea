@@ -3,8 +3,8 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Card, Header, Loader, Grid, ListItem, Icon, GridColumn } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import Moped from '/imports/ui/components/Moped';
 import { Items } from '../../items/Items';
+import SC from '../components/SC';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListMopeds extends React.Component {
@@ -20,7 +20,7 @@ class ListMopeds extends React.Component {
         <Container>
           <Header as="h2" textAlign="center">List Mopeds</Header>
           <Card.Group>
-            {this.props.items.map((moped, index) => <Moped key={index} moped={moped}/>)}
+            {this.props.items.map((sc, index) => <SC key={index} sc={sc}/>)}
           </Card.Group>
         </Container>
     );
