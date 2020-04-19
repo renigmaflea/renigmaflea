@@ -8,7 +8,6 @@ import { Items } from '../../api/item/Items';
 import { Reports } from '../../api/report/Reports';
 import ReportRow from '../components/ReportRow';
 
-
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class AdminReports extends React.Component {
 
