@@ -28,7 +28,7 @@ class Item extends React.Component {
             <Link to={`/profile/${this.props.contact._id}`}><Button color='yellow'><Icon name='star'/>Favorite</Button></Link>
             <Link to={`/profile/${this.props.contact._id}`}><Button color='blue'><Icon name='share square'/>Share</Button></Link>
             <Link to={`/profile/${this.props.contact._id}`}><Button color='gray'><Icon name='edit'/>Edit</Button></Link>
-            <Link to={`/profile/${this.props.contact._id}`}><Button color='red'><Icon name='trash'/>Delete</Button></Link>
+            <Button color='red'><Icon name='trash'/>Delete</Button>
             </ButtonGroup>
           </Card.Content>
           <Card.Content extra>

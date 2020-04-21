@@ -19,7 +19,7 @@ class ListItems extends React.Component {
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center" inverted>List Contacts</Header>
+          <Header as="h2" textAlign="center" >Posted Items</Header>
           <Card.Group>
             {this.props.contacts.map((contact, index) => <Contact
                 key={index}
