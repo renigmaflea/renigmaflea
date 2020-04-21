@@ -40,7 +40,7 @@ class AdminReports extends React.Component {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {/*{this.props.reports.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} Stuffs={Stuffs}/>)}*/}
+              {/* {this.props.stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} Stuffs={Stuffs}/>)} */}
               <ReportRow/>
             </Table.Body>
           </Table>
