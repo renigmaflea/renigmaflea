@@ -8,6 +8,7 @@ import { Items } from '../../api/item/Items';
 import { Reports } from '../../api/report/Reports';
 import ReportRow from '../components/ReportRow';
 
+
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class AdminReports extends React.Component {
 
@@ -40,7 +41,7 @@ class AdminReports extends React.Component {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {/* {this.props.stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} Stuffs={Stuffs}/>)} */}
+              {/*{this.props.reports.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} Stuffs={Stuffs}/>)}*/}
               <ReportRow/>
             </Table.Body>
           </Table>
