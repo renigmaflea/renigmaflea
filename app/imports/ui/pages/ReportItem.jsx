@@ -7,7 +7,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import SimpleSchema from 'simpl-schema';
 import PropTypes from 'prop-types';
-import { Reports } from '../../api/report/Report';
+import { Reports } from '../../api/report/Reports';
 
 
 /** Create a schema to specify the structure of the data to appear in the form. */
