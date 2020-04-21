@@ -54,3 +54,19 @@ Meteor.publish('Items', function publish() {
   }
   return this.ready();
 });
+
+/** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
+Meteor.publish('Reports', function publish() {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Reports.find();
+  }
+  return this.ready();
+});
+
+/** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
+Meteor.publish('Items', function publish() {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Items.find();
+  }
+  return this.ready();
+});
