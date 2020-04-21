@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Feed } from 'semantic-ui-react';
+import { Card, Image, Feed, Icon, Button, ButtonGroup } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import Note from './Note';
@@ -23,8 +23,13 @@ class Item extends React.Component {
               {this.props.contact.description} <strong></strong>
             </Card.Description>
           </Card.Content>
-          <Card.Content extra>
-            <Link to={`/edit/${this.props.contact._id}`}>Edit</Link>
+          <Card.Content>
+            <ButtonGroup size='mini'>
+            <Link to={`/profile/${this.props.contact._id}`}><Button color='yellow'><Icon name='star'/>Favorite</Button></Link>
+            <Link to={`/profile/${this.props.contact._id}`}><Button color='blue'><Icon name='share square'/>Share</Button></Link>
+            <Link to={`/profile/${this.props.contact._id}`}><Button color='gray'><Icon name='edit'/>Edit</Button></Link>
+            <Link to={`/profile/${this.props.contact._id}`}><Button color='red'><Icon name='trash'/>Delete</Button></Link>
+            </ButtonGroup>
           </Card.Content>
           <Card.Content extra>
             <Feed>
