@@ -13,5 +13,10 @@
 
   "defaultReports": [
     { "reason": "Inappropriate", "comment": "Contains inappropriate photos", "itemID": "ItemIDHere", "reporter": "ReporterIDHere"}
+  ],
+  "defaultItems": [
+    { "firstName": "Liam",
+      "lastName": "Richard", "address": "Somwhere", "image": "something", "description": "Some description", "owner": "admin@foo.com"
+    }
   ]
 }

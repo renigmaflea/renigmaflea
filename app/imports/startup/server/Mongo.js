@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
-import { Stuffs } from '../../api/stuff/Stuff.js';
-import { Reports } from '../../api/report/Report';
+import { Items } from '../../api/item/Items';
+import { Stuffs } from '../../api/stuff/Stuff';
+import { Reports } from '../../api/report/Reports';
 
 /* eslint-disable no-console */
 
@@ -29,5 +30,19 @@ if (Reports.find().count() === 0) {
   if (Meteor.settings.defaultReports) {
     console.log('Creating default reports.');
     Meteor.settings.defaultReports.map(data => addReports(data));
+  }
+}
+
+/** Initialize the database with a default items. */
+function addItems(data) {
+  console.log(`  Adding: ${data.name} (${data.owner})`);
+  Items.insert(data);
+}
+
+/** Initialize the itemss collection if empty. */
+if (Items.find().count() === 0) {
+  if (Meteor.settings.defaultItems) {
+    console.log('Creating default items.');
+    Meteor.settings.defaultItems.map(data => addItems(data));
   }
 }
