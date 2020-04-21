@@ -17,6 +17,9 @@
   "defaultItems": [
     { "firstName": "Liam",
       "lastName": "Richard", "address": "Somwhere", "image": "something", "description": "Some description", "owner": "admin@foo.com"
+    },
+    { "firstName": "Red",
+      "lastName": "Green", "address": "Somwhere else", "image": "something else", "description": "Some other description", "owner": "john@foo.com"
     }
   ]
 }
