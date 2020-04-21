@@ -3,17 +3,25 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import _ from 'underscore';
 import { Items } from '../../api/item/Items';
 import { Reports } from '../../api/report/Reports';
 import ReportRow from '../components/ReportRow';
+
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class AdminReports extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
-    // return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
-    return this.renderPage();
+    console.log(this.props.reports);
+    const itemIDs = _.pluck(this.props.reports, 'itemID');
+    console.log(itemIDs);
+
+    const reportedItems = _.filter(this.props.items, item => _.contains(itemIDs, item.id));
+    console.log(reportedItems);
+
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
   /** Render the page once subscriptions have been received. */
@@ -33,7 +41,7 @@ class AdminReports extends React.Component {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {/* {this.props.stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} Stuffs={Stuffs}/>)} */}
+              {/*{this.props.reports.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} Stuffs={Stuffs}/>)}*/}
               <ReportRow/>
             </Table.Body>
           </Table>
@@ -44,9 +52,9 @@ class AdminReports extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 AdminReports.propTypes = {
-  items: PropTypes.array.isRequired,
   reports: PropTypes.array.isRequired,
-  // ready: PropTypes.bool.isRequired,
+  items: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
@@ -55,8 +63,8 @@ export default withTracker(() => {
   const subscription = Meteor.subscribe('Reports');
   const subscription2 = Meteor.subscribe('Items');
   return {
-    items: Items.find({}).fetch(),
-    reports: Reports.find({}).fetch(),
-    // ready: subscription.ready() && subscription2.ready(),
+    reports: Reports.find().fetch(),
+    itmes: Items.find().fetch(),
+    ready: subscription.ready() && subscription2.ready(),
   };
 })(AdminReports);
