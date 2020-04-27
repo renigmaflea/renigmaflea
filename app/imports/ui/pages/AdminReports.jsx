@@ -17,12 +17,7 @@ class AdminReports extends React.Component {
     console.log(this.props.reports);
     const itemIDs = _.pluck(this.props.reports, 'itemID'); // get a list of reported item IDs
     console.log(itemIDs);
-
-    // Getting a dummy item to report
-
-    // const firstItem = this.props.items[0];
-    // console.log(firstItem._id);
-
+    
     // filter items that are in itemIDs
     const reportedItems = _.filter(this.props.items, item => _.contains(itemIDs, item.id));
     console.log(reportedItems);
