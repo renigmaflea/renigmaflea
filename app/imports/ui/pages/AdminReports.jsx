@@ -15,9 +15,15 @@ class AdminReports extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     console.log(this.props.reports);
-    const itemIDs = _.pluck(this.props.reports, 'itemID');
+    const itemIDs = _.pluck(this.props.reports, 'itemID'); // get a list of reported item IDs
     console.log(itemIDs);
 
+    // Getting a dummy item to report
+
+    // const firstItem = this.props.items[0];
+    // console.log(firstItem._id);
+
+    // filter items that are in itemIDs
     const reportedItems = _.filter(this.props.items, item => _.contains(itemIDs, item.id));
     console.log(reportedItems);
 
@@ -42,7 +48,7 @@ class AdminReports extends React.Component {
             </Table.Header>
             <Table.Body>
               {/*{this.props.reports.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} Stuffs={Stuffs}/>)}*/}
-              <ReportRow/>
+              <ReportRow />
             </Table.Body>
           </Table>
         </Container>
@@ -64,7 +70,7 @@ export default withTracker(() => {
   const subscription2 = Meteor.subscribe('Items');
   return {
     reports: Reports.find().fetch(),
-    itmes: Items.find().fetch(),
+    items: Items.find().fetch(),
     ready: subscription.ready() && subscription2.ready(),
   };
 })(AdminReports);
