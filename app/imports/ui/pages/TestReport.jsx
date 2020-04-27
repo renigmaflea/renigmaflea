@@ -8,7 +8,7 @@ const formSchema = new SimpleSchema({
   id: String,
 });
 
-class Test extends React.Component {
+class TestReport extends React.Component {
   constructor(props) {
     super(props);
     this.state = { id: '' };
@@ -42,4 +42,4 @@ class Test extends React.Component {
     );
   }
 }
-export default Test;
+export default TestReport;

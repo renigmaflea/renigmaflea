@@ -14,19 +14,19 @@ class AdminReports extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
-    console.log(this.props.reports);
+    // console.log(this.props.reports);
     const itemIDs = _.pluck(this.props.reports, 'itemID'); // get a list of reported item IDs
     console.log(itemIDs);
-    
     // filter items that are in itemIDs
-    const reportedItems = _.filter(this.props.items, item => _.contains(itemIDs, item.id));
-    console.log(reportedItems);
+    // console.log(this.props.items);
+    const reportedItems = _.filter(this.props.items, item => _.contains(itemIDs, item._id)); // works now
+    // console.log(reportedItems);
 
-    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+    return (this.props.ready) ? this.renderPage(reportedItems) : <Loader active>Getting data</Loader>;
   }
 
   /** Render the page once subscriptions have been received. */
-  renderPage() {
+  renderPage(reportedItems) {
     return (
         <Container style={{ marginTop: '20px' }} textAlign='center'>
           <Header as='h1'>Admin Reports Listing</Header>
@@ -37,13 +37,16 @@ class AdminReports extends React.Component {
                 <Table.HeaderCell>Posted by</Table.HeaderCell>
                 <Table.HeaderCell>Item Page</Table.HeaderCell>
                 <Table.HeaderCell>Reported by</Table.HeaderCell>
-                <Table.HeaderCell>Status</Table.HeaderCell>
+                <Table.HeaderCell>Resolved Status</Table.HeaderCell>
                 <Table.HeaderCell>Action</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {/*{this.props.reports.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} Stuffs={Stuffs}/>)}*/}
-              <ReportRow />
+              {reportedItems.map((item) => <ReportRow key={item._id} item={item}
+                                                      reportsArray={this.props.reports}
+                                                      reportsCollection={Reports}
+              />)
+              /* Report prop technical debt, should change later */ }
             </Table.Body>
           </Table>
         </Container>
@@ -62,7 +65,7 @@ AdminReports.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('Reports');
-  const subscription2 = Meteor.subscribe('Items');
+  const subscription2 = Meteor.subscribe('ItemsAdmin');
   return {
     reports: Reports.find().fetch(),
     items: Items.find().fetch(),

@@ -23,7 +23,7 @@ import AboutUs from '../pages/AboutUs';
 import Profile from '../pages/Profile';
 import ReportItem from '../pages/ReportItem';
 import AdminReports from '../pages/AdminReports';
-import Test from '../pages/Test';
+import TestReport from '../pages/TestReport';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -47,7 +47,7 @@ class App extends React.Component {
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/adminreports" component={AdminReports}/>
               <ProtectedRoute path="/signout" component={Signout}/>
-              <ProtectedRoute path="/test" component={Test}/>
+              <ProtectedRoute path="/testreport" component={TestReport}/>
               <Route component={NotFound}/>
             </Switch>
             <Footer/>

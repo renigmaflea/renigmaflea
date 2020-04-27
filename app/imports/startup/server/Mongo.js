@@ -45,4 +45,3 @@ if (Items.find().count() === 0) {
     Meteor.settings.defaultItems.map(data => addItems(data));
   }
 }
-

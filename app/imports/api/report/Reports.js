@@ -10,6 +10,7 @@ const ReportsSchema = new SimpleSchema({
   reason: String,
   comment: String,
   itemID: String,
+  open: Boolean, // open = true, close = false
   reporter: String,
 }, { tracker: Tracker });
 

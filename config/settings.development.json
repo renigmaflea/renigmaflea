@@ -12,7 +12,7 @@
   ],
 
   "defaultReports": [
-    { "reason": "Inappropriate", "comment": "Contains inappropriate photos", "itemID": "ItemIDHere", "reporter": "ReporterIDHere"}
+    { "reason": "Inappropriate", "comment": "Contains inappropriate photos", "itemID": "ItemIDHere", "open": true, "reporter": "john@foo.com"}
   ],
   "defaultItems": [
     { "firstName": "Liam",

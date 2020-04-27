@@ -28,7 +28,8 @@ class ReportItem extends React.Component {
     const { reason, comment } = data;
     const reporter = Meteor.user().username; { /* need to add item id */ }
     const itemID = id;
-    Reports.insert({ reason, comment, itemID, reporter },
+    const open = true;
+    Reports.insert({ reason, comment, itemID, open, reporter },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
