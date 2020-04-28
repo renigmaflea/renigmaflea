@@ -24,6 +24,7 @@ class ListItems extends React.Component {
             {this.props.contacts.map((contact, index) => <Contact
                 key={index}
                 contact={contact}
+                Items={Items}
                 notes={this.props.notes.filter(note => (note.contactId === contact._id))}/>)}
           </Card.Group>
         </Container>
