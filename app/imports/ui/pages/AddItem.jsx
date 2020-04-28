@@ -36,11 +36,22 @@ class AddItem extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
+    const titleStyle = {
+      color: '#0e9e71',
+      textDecoration: 'underline',
+      fontWeight: 'bold',
+    };
+
+    const backgroundStyle = {
+      backgroundImage: `url(${'/images/pattern.jpg'})`,
+      backgroundSize: 'fit',
+    };
     let fRef = null;
     return (
+        <div style={backgroundStyle}>
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center inverted">Add Item</Header>
+            <Header as="h2" textAlign="center inverted" style={titleStyle}>Add Item</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='firstName'/>
@@ -54,6 +65,7 @@ class AddItem extends React.Component {
             </AutoForm>
           </Grid.Column>
         </Grid>
+        </div>
     );
   }
 }

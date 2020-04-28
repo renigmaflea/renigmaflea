@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, List, Header, Loader, Grid, Icon, GridColumn } from 'semantic-ui-react';
+import { Container, List, Header, Loader, Grid, Icon, GridColumn, Divider } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Items } from '../../api/item/Items';
@@ -15,9 +15,25 @@ class AboutUs extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const titleStyle = {
+      color: '#0e9e71',
+      textDecoration: 'underline',
+      fontWeight: 'bold',
+      marginTop: '20px',
+    };
+
+    const backgroundStyle = {
+      backgroundImage: `url(${'/images/pattern.jpg'})`,
+      backgroundSize: 'fit',
+    };
+
+    const textStyle = {
+      fontSize: 'large',
+    };
     return (
-        <Container>
-          <Header as="h2" textAlign="center">Our Team and Mission</Header>
+        <div style={backgroundStyle}>
+          <Container>
+          <Header as="h2" textAlign="center" style={titleStyle}>Our Team and Mission</Header>
           <Grid columns={2} >
             <GridColumn>
           <List>
@@ -67,11 +83,32 @@ class AboutUs extends React.Component {
           </List>
             </GridColumn>
             <GridColumn>
-              <p>Our goal was to create a safe and regulated trading platform designed for college students. Other trading websites and forums....</p>
+              <p>Our goal was to create a safe and regulated trading platform designed for college students.
+                Other trading websites and forums....</p>
             </GridColumn>
           </Grid>
-          <Header as="h2" textAlign="center">User Policy</Header>
-        </Container>
+            <Divider/>
+          <Header as="h2" textAlign="center" style={titleStyle}>User Policy</Header>
+            <Header as="h3" textAlign="center" style={titleStyle}>Posting</Header>
+            <p style={textStyle}>Rainbow Retail strive to create friendly trading platform for everyone. Users cannot
+              post items that is considered imappropriate, and inappropriate items may be deleted at any time without
+              notice. Any item that is deemed offensive or defamatory towards other users will be removed as well.
+            </p>
+
+            <Header as="h3" textAlign="center" style={titleStyle}>Reporting</Header>
+            <p style={textStyle}>Users must report only items that have been found to violate the Item Posting section
+              of the User Policy. Any reports that contain any reason other than those listed can be invalid and removed
+              from consideration. Rainbow Retail does not guarantee that every reported items will be removed from the
+              site.
+            </p>
+
+            <Header as="h3" textAlign="center" style={titleStyle}>Stolen or Non-Consent Items</Header>
+            <p style={textStyle}>Rainbow Retail strive to create a fair marketplace. Any items that is stolen and posted
+              on the site will be removed and/or reported to the authorities. Any item that is reported by a user to be
+              posted without the owner's consent will be removed from the site without notice.
+            </p>
+          </Container>
+        </div>
     );
   }
 }
