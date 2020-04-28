@@ -13,6 +13,13 @@ Meteor.publish('Items', function publish() {
   return this.ready();
 });
 
+Meteor.publish('ItemsAdmin', function publish() {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Items.find();
+  }
+  return this.ready();
+});
+
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Contacts', function publish() {
   if (this.userId) {
@@ -30,14 +37,6 @@ Meteor.publish('ContactsAdmin', function publish() {
   return this.ready();
 });
 
-/** This subscription publishes only the documents associated with the logged in user */
-Meteor.publish('Notes', function publish() {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Notes.find({ owner: username });
-  }
-  return this.ready();
-});
 
 /** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
 Meteor.publish('Reports', function publish() {
@@ -48,9 +47,3 @@ Meteor.publish('Reports', function publish() {
 });
 
 /** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
-Meteor.publish('ItemsAdmin', function publish() {
-  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Items.find();
-  }
-  return this.ready();
-});

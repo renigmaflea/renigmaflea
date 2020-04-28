@@ -11,15 +11,27 @@
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
 
-  "defaultReports": [
-    { "reason": "Inappropriate", "comment": "Contains inappropriate photos", "itemID": "ItemIDHere", "open": true, "reporter": "john@foo.com"}
-  ],
   "defaultItems": [
-    { "firstName": "Liam",
-      "lastName": "Richard", "address": "Somwhere", "image": "something", "description": "Some description", "owner": "admin@foo.com"
+    {
+      "firstName": "Philip", "lastName": "Johnson", "itemName": "Macbook", "address": "POST 307, University of Hawaii",
+      "description": "I am a Professor of Information and Computer Sciences at the University of Hawaii, Director of the Collaborative Software Development Laboratory, and the CEO of OpenPowerQuality.com.",
+      "category": "Technology",
+      "image": "https://react.semantic-ui.com/images/avatar/large/molly.png",
+      "owner": "john@foo.com"
     },
-    { "firstName": "Red",
-      "lastName": "Green", "address": "Somwhere else", "image": "something else", "description": "Some other description", "owner": "john@foo.com"
+    {
+      "firstName": "Henri", "lastName": "Casanova", "itemName": "PC","address": "POST 307, University of Hawaii",
+      "description": "I am originally from France. I maintain a list of reports from my surf sessions. I have proof that I ran the Hana relay with an actual Team.",
+      "category": "Technology",
+      "image": "https://react.semantic-ui.com/images/avatar/large/molly.png",
+      "owner": "john@foo.com"
+    },
+    {
+      "firstName": "Kim", "lastName": "Binsted",  "itemName": "Moped", "address": "POST 307, University of Hawaii",
+      "description": "Kim Binsted received her BSc in Physics at McGill (1991), and her PhD in Artificial Intelligence from the University of Edinburgh (1996). Her thesis topic was the computational modeling and generation of punning riddles, and her program, JAPE (Joke Analysis and Production Engine), generated puns such as 'What do you call a Martian who drinks beer? An ale-ien!'.",
+      "category": "Transportation",
+      "image": "https://react.semantic-ui.com/images/avatar/large/molly.png",
+      "owner": "admin@foo.com"
     }
   ]
 }

@@ -33,15 +33,16 @@ if (Reports.find().count() === 0) {
 }
 
 /** Initialize the database with a default items. */
-function addItems(data) {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
+function addItem(data) {
+  console.log(`  Adding: ${data.lastName} (${data.owner})`);
   Items.insert(data);
 }
 
-/** Initialize the itemss collection if empty. */
+
+/** Initialize the collection if empty. */
 if (Items.find().count() === 0) {
   if (Meteor.settings.defaultItems) {
-    console.log('Creating default items.');
-    Meteor.settings.defaultItems.map(data => addItems(data));
+    console.log('Creating item data.');
+    Meteor.settings.defaultItems.map(data => addItem(data));
   }
 }

@@ -1,38 +1,33 @@
 import React from 'react';
-import { Card, Image, Feed } from 'semantic-ui-react';
+import { Card, Image, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
-import Note from './Note';
-import AddNote from '../components/AddNote';
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+/** Renders a single row in the List Stuff table. See pages/ListProfile.jsx. */
 class Item extends React.Component {
   render() {
     return (
-        // centered maybe not needed
         <Card centered>
           <Card.Content>
             <Image
                 floated='right'
                 size='mini'
-                src={this.props.contact.image}
+                src={this.props.item.image}
             />
-            <Card.Header>{this.props.contact.firstName} {this.props.contact.lastName}</Card.Header>
-            <Card.Meta>{this.props.contact.address}</Card.Meta>
+            <Card.Header>{this.props.item.firstName} {this.props.item.lastName} </Card.Header>
+            <Card.Header>{this.props.item.itemName} </Card.Header>
+            <Card.Meta>{this.props.item.address} </Card.Meta>
             <Card.Description>
-              {this.props.contact.description} <strong></strong>
+              {this.props.item.description}
             </Card.Description>
-          </Card.Content>
-          <Card.Content extra>
-            <Link to={`/edit/${this.props.contact._id}`}>Edit</Link>
-          </Card.Content>
-          <Card.Content extra>
-            <Feed>
-              {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
-            </Feed>
-          </Card.Content>
-          <Card.Content extra>
-            <AddNote owner={this.props.contact.owner} contactId={this.props.contact._id}/>
+            <div className='ui two buttons'>
+              <Button basic color='green'>
+                Add to basket
+              </Button>
+              <Button basic color='red'>
+                Report
+              </Button>
+            </div>
           </Card.Content>
         </Card>
     );
@@ -41,8 +36,7 @@ class Item extends React.Component {
 
 /** Require a document to be passed to this component. */
 Item.propTypes = {
-  contact: PropTypes.object.isRequired,
-  notes: PropTypes.array.isRequired,
+  item: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

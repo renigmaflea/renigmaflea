@@ -8,7 +8,7 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListProfile from '../pages/ListProfile';
-import ListItems from '../pages/ListItems';
+import ListItems from '../pages/ListItemsPrev';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import ListCategories from '../pages/ListCategories';
 import AddStuff from '../pages/AddStuff';
@@ -24,6 +24,11 @@ import Profile from '../pages/Profile';
 import ReportItem from '../pages/ReportItem';
 import AdminReports from '../pages/AdminReports';
 import TestReport from '../pages/TestReport';
+import ListItem from '../pages/ListItem';
+import ListHHA from '../pages/ListHHA';
+import ListTC from '../pages/ListTC';
+import ListTS from '../pages/ListTS';
+import ListMISC from '../pages/ListMISC';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -39,8 +44,12 @@ class App extends React.Component {
               <Route path="/profile" component={Profile}/>
               <Route path="/about" component={AboutUs}/>
               <ProtectedRoute path="/listprof" component={ListProfile}/>
-              <ProtectedRoute path="/list" component={ListItems}/>
+              <ProtectedRoute path="/list" component={ListItem}/>
               <ProtectedRoute path="/listcat" component={ListCategories}/>
+              <ProtectedRoute path="/listhha" component={ListHHA}/>
+              <ProtectedRoute path="/listtc" component={ListTC}/>
+              <ProtectedRoute path="/listts" component={ListTS}/>
+              <ProtectedRoute path="/listmisc" component={ListMISC}/>
               <ProtectedRoute path="/add" component={AddItem}/>
               <ProtectedRoute path="/edit/:_id" component={EditItem}/>
               <ProtectedRoute path="/report/:_id" component={ReportItem}/>
