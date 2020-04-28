@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Image, Feed, Icon, Button, ButtonGroup } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListProfile.jsx. */
 class Item extends React.Component {
