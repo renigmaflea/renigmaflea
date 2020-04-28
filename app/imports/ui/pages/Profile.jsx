@@ -3,9 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Card, Header, Loader, Image, Icon } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-//import { Stuffs } from '../../api/stuff/Stuff';
 import { Items } from '../../api/item/Items';
-//import StuffItem from '../components/StuffItem';
 
 /** Renders a table containing all of the Item documents. Use <StuffItem> to render each row. */
 class ListProfile extends React.Component {
@@ -17,9 +15,20 @@ class ListProfile extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const titleStyle = {
+      color: '#0e9e71',
+      textDecoration: 'underline',
+      fontWeight: 'bold',
+    };
+
+    const backgroundStyle = {
+      backgroundImage: `url(${'/images/pattern.jpg'})`,
+      backgroundSize: 'fit',
+    };
     return (
+        <div style={backgroundStyle}>
         <Container>
-          <Header as="h2" textAlign="center">My Profile</Header>
+          <Header as="h2" textAlign="center" style={titleStyle}>My Profile</Header>
           <Card>
             <Image src='/images/frog.png' wrapped ui={false} />
             <Card.Content>
@@ -39,6 +48,7 @@ class ListProfile extends React.Component {
             </Card.Content>
           </Card>
         </Container>
+        </div>
     );
   }
 }

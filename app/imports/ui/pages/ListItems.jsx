@@ -17,9 +17,20 @@ class ListItems extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const titleStyle = {
+      color: '#0e9e71',
+      textDecoration: 'underline',
+      fontWeight: 'bold',
+    };
+
+    const backgroundStyle = {
+      backgroundImage: `url(${'/images/pattern.jpg'})`,
+      backgroundSize: 'fit',
+    };
     return (
+        <div style={backgroundStyle}>
         <Container>
-          <Header as="h2" textAlign="center" >Posted Items</Header>
+          <Header as="h2" textAlign="center" style={titleStyle}>Posted Items</Header>
           <Card.Group>
             {this.props.contacts.map((contact, index) => <Contact
                 key={index}
@@ -28,6 +39,7 @@ class ListItems extends React.Component {
                 notes={this.props.notes.filter(note => (note.contactId === contact._id))}/>)}
           </Card.Group>
         </Container>
+        </div>
     );
   }
 }
