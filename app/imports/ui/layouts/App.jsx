@@ -11,8 +11,6 @@ import ListProfile from '../pages/ListProfile';
 import ListItems from '../pages/ListItems';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import ListCategories from '../pages/ListCategories';
-import AddStuff from '../pages/AddStuff';
-import EditStuff from '../pages/EditStuff';
 import AddItem from '../pages/AddItem';
 import EditItem from '../pages/EditItem';
 import NotFound from '../pages/NotFound';
