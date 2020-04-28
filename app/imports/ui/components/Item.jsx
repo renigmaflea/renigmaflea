@@ -8,8 +8,58 @@ import AddNote from '../components/AddNote';
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Item extends React.Component {
   render() {
+
+    const divStyle = {
+      background: '#2d8757',
+      width: '100%',
+      paddingTop: '20px',
+      paddingBottom: '20px',
+      paddingLeft: '35px',
+      borderRadius: '25px'
+    };
+
+    const imgStyle = {
+      height: '200px',
+      width: '200px',
+      borderRadius: '25px'
+    }
+
+    const nameStyle = {
+      fontSize: '30px',
+      fontWeight: 'bold',
+      color: 'white', //can change back to be blue when clicked turn to purple
+      paddingBottom: '15px'
+    }
+
+    const addressStyle = {
+      fontSize: '10px',
+      color: 'white',
+      paddingBottom: '15px'
+    }
+
+    const descStyle = {
+      fontSize: '20px',
+      color: 'white',
+      paddingBottom: '15px'
+    }
+
+    const editStyle = {
+      fontSize: '20px',
+      color: 'white', //can change back to be blue when clicked turn to purple
+      paddingBottom: '25px'
+    }
+
+    const iconStyle = {
+      //paddingTop: '25px',
+      //paddingBottom: '10px'
+    }
+
+    const buttonStyle = {
+      float: 'left'
+    }
+
     return (
-        // <Card centered ui divided items>
+    // <Card centered ui divided items>
         //   <Card.Content>
         //     <Image
         //         floated='left'
@@ -37,29 +87,32 @@ class Item extends React.Component {
         // </Card>
 
 
-        <div className="ui divided one column grid items">
+        <div style={divStyle} className="ui divided one column grid items">
           <div className="row section divider">
             <div className="image">
-                   <Image
+                   <Image style={imgStyle}
                        floated='left'
-                      size='medium'
+                      size='small'
                        src={this.props.contact.image}
                    />
             </div>
             <div className="content">
-              <a className="header">{this.props.contact.firstName} {this.props.contact.lastName}</a>
+              <a style={nameStyle} className="header">{this.props.contact.firstName} {this.props.contact.lastName}</a>
               <div className="meta">
-                <span className="cinema">{this.props.contact.address}</span>
+                <span style={addressStyle} className="cinema">{this.props.contact.address}</span>
               </div>
               <div className="description">
-                <p>{this.props.contact.description} <strong></strong></p>
-                <Link to={`/edit/${this.props.contact._id}`}>Edit</Link>
+                <p style={descStyle} >{this.props.contact.description} <strong></strong></p>
+                <Link style={editStyle} to={`/edit/${this.props.contact._id}`}>Edit</Link>
                 {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
                 <div owner={this.props.contact.owner} contactId={this.props.contact._id}/>
               </div>
               <div className="extra">
-                <div className="ui label">Test long words</div>
-                <div className="ui label"><i className="globe icon"></i> UH Item</div>
+                <div style={iconStyle} className="ui label"><i className="globe icon"></i> UH Item</div>
+              </div>
+              <div style={buttonStyle} className="extra ui left floated primary button">
+                Buy Items
+                <i className="right chevron icon"></i>
               </div>
             </div>
           </div>
