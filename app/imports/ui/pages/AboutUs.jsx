@@ -15,9 +15,20 @@ class AboutUs extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const titleStyle = {
+      color: '#0e9e71',
+      textDecoration: 'underline',
+      fontWeight: 'bold',
+    };
+
+    const backgroundStyle = {
+      backgroundImage: `url(${'/images/pattern.jpg'})`,
+      backgroundSize: 'fit',
+    };
     return (
-        <Container>
-          <Header as="h2" textAlign="center">Our Team and Mission</Header>
+        <div style={backgroundStyle}>
+          <Container>
+          <Header as="h2" textAlign="center" style={titleStyle}>Our Team and Mission</Header>
           <Grid columns={2} >
             <GridColumn>
           <List>
@@ -70,8 +81,9 @@ class AboutUs extends React.Component {
               <p>Our goal was to create a safe and regulated trading platform designed for college students. Other trading websites and forums....</p>
             </GridColumn>
           </Grid>
-          <Header as="h2" textAlign="center">User Policy</Header>
-        </Container>
+          <Header as="h2" textAlign="center" style={titleStyle}>User Policy</Header>
+          </Container>
+        </div>
     );
   }
 }
