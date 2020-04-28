@@ -16,7 +16,7 @@ class Footer extends React.Component {
             </div>
             <div style={divStyle} className="ui center aligned container">
               <br />
-              <Link to={ '/report' } > Report an Item </Link> |
+              <Link to={ '/reportguide' } > Report an Item </Link> |
               <Link to={ '/' }> Home Page </Link> |
               <Link to={ '/about' }> User Policy </Link>
             </div>
