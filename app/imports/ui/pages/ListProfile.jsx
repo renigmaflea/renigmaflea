@@ -3,8 +3,8 @@ import { Meteor } from 'meteor/meteor';
 import { Container, List, Header, Loader, Grid, ListItem, Icon, GridColumn } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Stuffs } from '../../api/stuff/Stuff';
-import StuffItem from '../components/StuffItem';
+//import { Stuffs } from '../../api/stuff/Stuff';
+import { Items } from '../../api/item/Items';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListProfile extends React.Component {
@@ -79,16 +79,16 @@ class ListProfile extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 ListProfile.propTypes = {
-  stuffs: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
-  // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Stuff');
+  // Get access to Item documents.
+  const subscription = Meteor.subscribe('Item');
   return {
-    stuffs: Stuffs.find({}).fetch(),
+    items: Items.find({}).fetch(),
     ready: subscription.ready(),
   };
 })(ListProfile);
