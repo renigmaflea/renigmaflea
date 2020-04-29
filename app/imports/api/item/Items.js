@@ -12,6 +12,11 @@ const ItemsSchema = new SimpleSchema({
   address: String,
   image: String,
   description: String,
+  category: {
+    type: String,
+    allowedValues: ['Transportation', 'Household Appliances', 'Technology', 'Miscellaneous'],
+    defaultValue: 'Transportation',
+  },
   owner: String,
 }, { tracker: Tracker });
 

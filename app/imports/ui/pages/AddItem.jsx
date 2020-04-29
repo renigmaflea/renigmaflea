@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, LongTextField, SubmitField, TextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, LongTextField, SubmitField, TextField, SelectField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
@@ -14,6 +14,11 @@ const formSchema = new SimpleSchema({
   address: String,
   image: String,
   description: String,
+  category: {
+    type: String,
+    allowedValues: ['Transportation', 'Household Appliances', 'Technology', 'Miscellaneous'],
+    defaultValue: 'Transportation',
+  },
 });
 
 /** Renders the Page for adding a document. */
@@ -21,9 +26,9 @@ class AddItem extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { firstName, lastName, address, image, description } = data;
+    const { firstName, lastName, address, image, description, category } = data;
     const owner = Meteor.user().username;
-    Items.insert({ firstName, lastName, address, image, description, owner },
+    Items.insert({ firstName, lastName, address, image, description, category, owner },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
@@ -59,6 +64,7 @@ class AddItem extends React.Component {
                   <TextField name='address'/>
                   <TextField name='image'/>
                   <LongTextField name='description'/>
+                  <SelectField name='category'/>
                   <SubmitField value='Submit'/>
                   <ErrorsField/>
                 </Segment>
