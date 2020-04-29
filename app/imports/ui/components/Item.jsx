@@ -62,60 +62,60 @@ class Item extends React.Component {
       float: 'left'
     }
 
-     return (
+    return (
 
-    // <Card centered ui divided items>
-    //       <Card.Content>
-    //         <Image
-    //             floated='left'
-    //             size='medium'
-    //             src={this.props.contact.image}
-    //         />
-    //         <Card.Header>{this.props.contact.firstName} {this.props.contact.lastName}</Card.Header>
-    //         <Card.Meta>{this.props.contact.address}</Card.Meta>
-    //         <Card.Description>
-    //           {this.props.contact.description} <strong></strong>
-    //         </Card.Description>
-    //       </Card.Content>
-    //
-    //       <Card.Content extra>
-    //         <Link to={`/edit/${this.props.contact._id}`}>Edit</Link>
-    //       </Card.Content>
-    //       <Card.Content extra>
-    //         <Feed>
-    //           {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
-    //         </Feed>
-    //       </Card.Content>
-    //       <Card.Content extra>
-    //         <AddNote owner={this.props.contact.owner} contactId={this.props.contact._id}/>
-    //       </Card.Content>
-    //     </Card>
+        // <Card centered ui divided items>
+        //       <Card.Content>
+        //         <Image
+        //             floated='left'
+        //             size='medium'
+        //             src={this.props.contact.image}
+        //         />
+        //         <Card.Header>{this.props.contact.firstName} {this.props.contact.lastName}</Card.Header>
+        //         <Card.Meta>{this.props.contact.address}</Card.Meta>
+        //         <Card.Description>
+        //           {this.props.contact.description} <strong></strong>
+        //         </Card.Description>
+        //       </Card.Content>
+        //
+        //       <Card.Content extra>
+        //         <Link to={`/edit/${this.props.contact._id}`}>Edit</Link>
+        //       </Card.Content>
+        //       <Card.Content extra>
+        //         <Feed>
+        //           {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
+        //         </Feed>
+        //       </Card.Content>
+        //       <Card.Content extra>
+        //         <AddNote owner={this.props.contact.owner} contactId={this.props.contact._id}/>
+        //       </Card.Content>
+        //     </Card>
 
 
         <div style={divStyle} className="ui divided one column grid items">
           <div className="row section divider">
             <div className="image">
-                   <Image style={imgStyle}
-                       floated='left'
-                      size='small'
-                       src={this.props.contact.image}
-                   />
+              <Image style={imgStyle}
+                     floated='left'
+                     size='small'
+                     src={this.props.item.image}
+              />
             </div>
             <div className="content">
-              <a style={nameStyle} className="header">{this.props.contact.firstName} {this.props.contact.lastName}</a>
+              <a style={nameStyle} className="header">{this.props.item.firstName} {this.props.item.lastName}</a>
               <div className="meta">
-                <span style={addressStyle} className="cinema">{this.props.contact.address}</span>
+                <span style={addressStyle} className="cinema">{this.props.item.address}</span>
               </div>
               <div className="description">
-                <p style={descStyle} >{this.props.contact.description} <strong></strong></p>
+                <p style={descStyle} >{this.props.item.description} <strong></strong></p>
 
                 <Button size = 'mini' color='gray'><Icon name='edit'/>
-                  <Link to={`/edit/${this.props.contact._id}`}>Edit</Link>
+                  <Link to={`/edit/${this.props.item._id}`}>Edit</Link>
                 </Button>
-                <Button size = 'mini' onClick={() => this.removeItem(this.props.contact._id)}>Delete</Button>
+                <Button size = 'mini' onClick={() => this.removeItem(this.props.item._id)}>Delete</Button>
 
                 {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
-                <div owner={this.props.contact.owner} contactId={this.props.contact._id}/>
+                <div owner={this.props.item.owner} itemId={this.props.item._id}/>
               </div>
 
               <div className="extra">
@@ -123,15 +123,15 @@ class Item extends React.Component {
                 <div style={iconStyle} className="ui label"><i className="globe icon"></i> UH Item</div>
               </div>
 
-              <Link to={`/profile/${this.props.contact._id}`}>
+              <Link to={`/profile/${this.props.item._id}`}>
                 <p></p>
                 <Button size = 'mini' color='yellow' className="extra ui left floated primary button"><Icon
-                  name='star'/>Buy Items</Button></Link>
+                    name='star'/>Buy Items</Button></Link>
 
-                <Link to={`/profile/${this.props.contact._id}`}><Button size = 'mini' color='yellow'><Icon
-                    name='star'/>Favorite</Button></Link>
-                <Link to={`/profile/${this.props.contact._id}`}><Button size = 'mini' color='blue'><Icon
-                    name='share square'/>Share</Button></Link>
+              <Link to={`/profile/${this.props.item._id}`}><Button size = 'mini' color='yellow'><Icon
+                  name='star'/>Favorite</Button></Link>
+              <Link to={`/profile/${this.props.item._id}`}><Button size = 'mini' color='blue'><Icon
+                  name='share square'/>Share</Button></Link>
 
             </div>
           </div>
