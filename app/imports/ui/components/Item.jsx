@@ -62,33 +62,34 @@ class Item extends React.Component {
       float: 'left'
     }
 
-    return (
+     return (
+
     // <Card centered ui divided items>
-        //   <Card.Content>
-        //     <Image
-        //         floated='left'
-        //         size='medium'
-        //         src={this.props.contact.image}
-        //     />
-        //     <Card.Header>{this.props.contact.firstName} {this.props.contact.lastName}</Card.Header>
-        //     <Card.Meta>{this.props.contact.address}</Card.Meta>
-        //     <Card.Description>
-        //       {this.props.contact.description} <strong></strong>
-        //     </Card.Description>
-        //   </Card.Content>
-        //
-        //   <Card.Content extra>
-        //     <Link to={`/edit/${this.props.contact._id}`}>Edit</Link>
-        //   </Card.Content>
-        //   <Card.Content extra>
-        //     <Feed>
-        //       {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
-        //     </Feed>
-        //   </Card.Content>
-        //   <Card.Content extra>
-        //     <AddNote owner={this.props.contact.owner} contactId={this.props.contact._id}/>
-        //   </Card.Content>
-        // </Card>
+    //       <Card.Content>
+    //         <Image
+    //             floated='left'
+    //             size='medium'
+    //             src={this.props.contact.image}
+    //         />
+    //         <Card.Header>{this.props.contact.firstName} {this.props.contact.lastName}</Card.Header>
+    //         <Card.Meta>{this.props.contact.address}</Card.Meta>
+    //         <Card.Description>
+    //           {this.props.contact.description} <strong></strong>
+    //         </Card.Description>
+    //       </Card.Content>
+    //
+    //       <Card.Content extra>
+    //         <Link to={`/edit/${this.props.contact._id}`}>Edit</Link>
+    //       </Card.Content>
+    //       <Card.Content extra>
+    //         <Feed>
+    //           {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
+    //         </Feed>
+    //       </Card.Content>
+    //       <Card.Content extra>
+    //         <AddNote owner={this.props.contact.owner} contactId={this.props.contact._id}/>
+    //       </Card.Content>
+    //     </Card>
 
 
         <div style={divStyle} className="ui divided one column grid items">
@@ -107,17 +108,31 @@ class Item extends React.Component {
               </div>
               <div className="description">
                 <p style={descStyle} >{this.props.contact.description} <strong></strong></p>
-                <Link style={editStyle} to={`/edit/${this.props.contact._id}`}>Edit</Link>
+
+                <Button size = 'mini' color='gray'><Icon name='edit'/>
+                  <Link to={`/edit/${this.props.contact._id}`}>Edit</Link>
+                </Button>
+                <Button size = 'mini' onClick={() => this.removeItem(this.props.contact._id)}>Delete</Button>
+
                 {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
                 <div owner={this.props.contact.owner} contactId={this.props.contact._id}/>
               </div>
+
               <div className="extra">
+                <p></p>
                 <div style={iconStyle} className="ui label"><i className="globe icon"></i> UH Item</div>
               </div>
-              <div style={buttonStyle} className="extra ui left floated primary button">
-                Buy Items
-                <i className="right chevron icon"></i>
-              </div>
+
+              <Link to={`/profile/${this.props.contact._id}`}>
+                <p></p>
+                <Button size = 'mini' color='yellow' className="extra ui left floated primary button"><Icon
+                  name='star'/>Buy Items</Button></Link>
+
+                <Link to={`/profile/${this.props.contact._id}`}><Button size = 'mini' color='yellow'><Icon
+                    name='star'/>Favorite</Button></Link>
+                <Link to={`/profile/${this.props.contact._id}`}><Button size = 'mini' color='blue'><Icon
+                    name='share square'/>Share</Button></Link>
+
             </div>
           </div>
         </div>

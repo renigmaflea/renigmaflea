@@ -11,7 +11,7 @@ class CategoriesCard extends React.Component {
     const textStyle = { fontWeight: '900px' };
 
     return (
-        <Card centered fluid>
+        <Card centered>
           <Card.Content>
             <Image
                 floated='right'
