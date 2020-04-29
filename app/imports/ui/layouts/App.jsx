@@ -27,6 +27,7 @@ import ListHHA from '../pages/ListHHA';
 import ListTC from '../pages/ListTC';
 import ListTS from '../pages/ListTS';
 import ListMISC from '../pages/ListMISC';
+import Lucky from '../pages/Lucky';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -55,6 +56,8 @@ class App extends React.Component {
               <ProtectedRoute path="/adminreports" component={AdminReports}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <ProtectedRoute path="/testreport" component={TestReport}/>
+              <ProtectedRoute path="/lucky" component={Lucky}/>
+
               <Route component={NotFound}/>
             </Switch>
             <Footer/>
