@@ -42,11 +42,23 @@ class AddItem extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
+    const titleStyle = {
+      color: '#0e9e71',
+      textDecoration: 'underline',
+      fontWeight: 'bold',
+      marginTop: '20px',
+    };
+
+    const backgroundStyle = {
+      backgroundImage: `url(${'/images/pattern.jpg'})`,
+      backgroundSize: 'fit',
+    };
     let fRef = null;
     return (
+        <div style={backgroundStyle}>
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Post an item to our page!</Header>
+            <Header as="h2" textAlign="center" style={titleStyle}>Post an item to our page!</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='firstName'/>
@@ -62,6 +74,7 @@ class AddItem extends React.Component {
             </AutoForm>
           </Grid.Column>
         </Grid>
+        </div>
     );
   }
 }

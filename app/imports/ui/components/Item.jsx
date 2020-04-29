@@ -5,6 +5,10 @@ import { withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListProfile.jsx. */
 class Item extends React.Component {
+  removeItem = (docId) => {
+    this.props.item.remove(docId);
+  }
+
   render() {
     return (
         <Card centered>
@@ -21,12 +25,10 @@ class Item extends React.Component {
               {this.props.item.description}
             </Card.Description>
             <div className='ui two buttons'>
-              <Button basic color='green'>
-                Add to basket
-              </Button>
               <Button basic color='red'>
                 Report
               </Button>
+              <Button onClick={() => this.removeItem(this.props.contact._id)}>Delete</Button>
             </div>
           </Card.Content>
         </Card>
@@ -36,6 +38,7 @@ class Item extends React.Component {
 
 /** Require a document to be passed to this component. */
 Item.propTypes = {
+  contact: PropTypes.object.isRequired,
   item: PropTypes.object.isRequired,
 };
 
