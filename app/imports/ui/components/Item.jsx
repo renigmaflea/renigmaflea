@@ -12,41 +12,130 @@ class Item extends React.Component {
   }
 
   render() {
-    return (
-        // centered maybe not needed
-        <Card centered>
-          <Card.Content>
-            <Image
-                floated='right'
-                size='mini'
-                src={this.props.item.image}
-            />
-            <Card.Header>{this.props.item.firstName} {this.props.item.lastName}</Card.Header>
-            <Card.Meta>{this.props.item.address}</Card.Meta>
-            <Card.Description>
-              {this.props.item.description} <strong></strong>
-            </Card.Description>
-          </Card.Content>
-          <Card.Content>
-            <ButtonGroup size='mini'>
-              <Link to={`/profile/${this.props.item._id}`}><Button color='yellow'><Icon
-                  name='star'/>Favorite</Button></Link>
-              <Link to={`/profile/${this.props.item._id}`}><Button color='blue'><Icon
-                  name='share square'/>Share</Button></Link>
-              <Link to={`/profile/${this.props.item._id}`}><Button color='gray'><Icon
-                  name='edit'/>Edit</Button></Link>
-              <Button onClick={() => this.removeItem(this.props.item._id)}>Delete</Button>
-            </ButtonGroup>
-          </Card.Content>
-          <Card.Content extra>
-            <Feed>
-              {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
-            </Feed>
-          </Card.Content>
-          <Card.Content extra>
-            <AddNote owner={this.props.item.owner} itemId={this.props.item._id}/>
-          </Card.Content>
-        </Card>
+
+    const divStyle = {
+      background: '#2d8757',
+      width: '100%',
+      paddingTop: '20px',
+      paddingBottom: '20px',
+      paddingLeft: '35px',
+      borderRadius: '25px'
+    };
+
+    const imgStyle = {
+      height: '200px',
+      width: '200px',
+      borderRadius: '25px'
+    }
+
+    const nameStyle = {
+      fontSize: '30px',
+      fontWeight: 'bold',
+      color: 'white', //can change back to be blue when clicked turn to purple
+      paddingBottom: '15px'
+    }
+
+    const addressStyle = {
+      fontSize: '10px',
+      color: 'white',
+      paddingBottom: '15px'
+    }
+
+    const descStyle = {
+      fontSize: '20px',
+      color: 'white',
+      paddingBottom: '15px'
+    }
+
+    const editStyle = {
+      fontSize: '20px',
+      color: 'white', //can change back to be blue when clicked turn to purple
+      paddingBottom: '25px'
+    }
+
+    const iconStyle = {
+      //paddingTop: '25px',
+      //paddingBottom: '10px'
+    }
+
+    const buttonStyle = {
+      float: 'left'
+    }
+
+     return (
+
+    // <Card centered ui divided items>
+    //       <Card.Content>
+    //         <Image
+    //             floated='left'
+    //             size='medium'
+    //             src={this.props.contact.image}
+    //         />
+    //         <Card.Header>{this.props.contact.firstName} {this.props.contact.lastName}</Card.Header>
+    //         <Card.Meta>{this.props.contact.address}</Card.Meta>
+    //         <Card.Description>
+    //           {this.props.contact.description} <strong></strong>
+    //         </Card.Description>
+    //       </Card.Content>
+    //
+    //       <Card.Content extra>
+    //         <Link to={`/edit/${this.props.contact._id}`}>Edit</Link>
+    //       </Card.Content>
+    //       <Card.Content extra>
+    //         <Feed>
+    //           {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
+    //         </Feed>
+    //       </Card.Content>
+    //       <Card.Content extra>
+    //         <AddNote owner={this.props.contact.owner} contactId={this.props.contact._id}/>
+    //       </Card.Content>
+    //     </Card>
+
+
+        <div style={divStyle} className="ui divided one column grid items">
+          <div className="row section divider">
+            <div className="image">
+                   <Image style={imgStyle}
+                       floated='left'
+                      size='small'
+                       src={this.props.contact.image}
+                   />
+            </div>
+            <div className="content">
+              <a style={nameStyle} className="header">{this.props.contact.firstName} {this.props.contact.lastName}</a>
+              <div className="meta">
+                <span style={addressStyle} className="cinema">{this.props.contact.address}</span>
+              </div>
+              <div className="description">
+                <p style={descStyle} >{this.props.contact.description} <strong></strong></p>
+
+                <Button size = 'mini' color='gray'><Icon name='edit'/>
+                  <Link to={`/edit/${this.props.contact._id}`}>Edit</Link>
+                </Button>
+                <Button size = 'mini' onClick={() => this.removeItem(this.props.contact._id)}>Delete</Button>
+
+                {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
+                <div owner={this.props.contact.owner} contactId={this.props.contact._id}/>
+              </div>
+
+              <div className="extra">
+                <p></p>
+                <div style={iconStyle} className="ui label"><i className="globe icon"></i> UH Item</div>
+              </div>
+
+              <Link to={`/profile/${this.props.contact._id}`}>
+                <p></p>
+                <Button size = 'mini' color='yellow' className="extra ui left floated primary button"><Icon
+                  name='star'/>Buy Items</Button></Link>
+
+                <Link to={`/profile/${this.props.contact._id}`}><Button size = 'mini' color='yellow'><Icon
+                    name='star'/>Favorite</Button></Link>
+                <Link to={`/profile/${this.props.contact._id}`}><Button size = 'mini' color='blue'><Icon
+                    name='share square'/>Share</Button></Link>
+
+            </div>
+          </div>
+        </div>
     );
   }
 }
