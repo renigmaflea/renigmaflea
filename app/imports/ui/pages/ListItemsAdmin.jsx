@@ -3,11 +3,13 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import ContactAdmin from '../components/Item';
-import { Items } from '../../api/item/Items';
+import { Items} from '../../api/item/Items';
+import ItemAdmin from '../components/ItemAdmin';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListItemsAdmin extends React.Component {
+
+
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -18,9 +20,9 @@ class ListItemsAdmin extends React.Component {
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center" inverted>List Contacts (Admin)</Header>
+          <Header as="h2" textAlign="center">Admin Listing:</Header>
           <Card.Group>
-            {this.props.contacts.map((contact, index) => <ContactAdmin key={index} contact={contact}/>)}
+            {this.props.items.map((item, index) => <ItemAdmin key={index} item={item}/>)}
           </Card.Group>
         </Container>
     );
@@ -29,16 +31,16 @@ class ListItemsAdmin extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 ListItemsAdmin.propTypes = {
-  contacts: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('ContactsAdmin');
+  const subscription = Meteor.subscribe('ItemsAdmin');
   return {
-    contacts: Items.find({}).fetch(),
+    items: Items.find({}).fetch(),
     ready: subscription.ready(),
   };
 })(ListItemsAdmin);
