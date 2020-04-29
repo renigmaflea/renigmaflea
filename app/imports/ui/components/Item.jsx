@@ -142,7 +142,7 @@ class Item extends React.Component {
 
 /** Require a document to be passed to this component. */
 Item.propTypes = {
-  contact: PropTypes.object.isRequired,
+  item: PropTypes.object.isRequired,
   Items: PropTypes.object.isRequired,
   notes: PropTypes.array.isRequired,
 
