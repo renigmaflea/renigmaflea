@@ -36,56 +36,57 @@ class AboutUs extends React.Component {
           <Image src='/images/manoapano.jpg' fluid/>
           <Container>
             <Header as="h2" textAlign="center" style={titleStyle}>Our Team & Mission</Header>
-            <Grid columns={2}>
-              <GridColumn>
-                <List style={textStyle}>
-                  <List.Item>
-                    <Icon color='red' name='user secret'/>
-                    <List.Content>
-                      <List.Header as='a'>Justin Wong</List.Header>
-                      <List.Description>
-                        Senior Director of Technology
-                      </List.Description>
-                    </List.Content>
-                  </List.Item>
-                  <List.Item>
-                    <Icon color='blue' name='user secret'/>
-                    <List.Content>
-                      <List.Header as='a'>Dean Fujimoto</List.Header>
-                      <List.Description>
-                        Head of Human Resources Department
-                      </List.Description>
-                    </List.Content>
-                  </List.Item>
-                  <List.Item>
-                    <Icon color='green' name='user secret'/>
-                    <List.Content>
-                      <List.Header as='a'>Patima Poochai</List.Header>
-                      <List.Description>
-                        Director of HIM & Coding Operations
-                      </List.Description>
-                    </List.Content>
-                  </List.Item>
-                  <List.Item>
-                    <Icon color='purple' name='user secret'/>
-                    <List.Content>
-                      <List.Header as='a'>Daniel Florenco</List.Header>
-                      <List.Description>
-                        Senior President Developer
-                      </List.Description>
-                    </List.Content>
-                  </List.Item>
-                  <List.Item>
-                    <Icon color='yellow' name='user secret'/>
-                    <List.Content>
-                      <List.Header as='a'>Andrew Emmons</List.Header>
-                      <List.Description>Head of Computer Hardware Department</List.Description>
-                    </List.Content>
-                  </List.Item>
-                </List>
-              </GridColumn>
-              <GridColumn>
-                <p style={textStyle}>Rainbow Retail is a student led initiative designed to create a safe and regulated platform for the
+              <Grid columns={2}>
+                <GridColumn>
+                  <List style={textStyle}>
+                    <List.Item>
+                      <Icon color='red' name='user secret'/>
+                      <List.Content>
+                        <List.Header as='a'>Justin Wong</List.Header>
+                        <List.Description>
+                          Senior Director of Technology
+                        </List.Description>
+                      </List.Content>
+                    </List.Item>
+                    <List.Item>
+                      <Icon color='blue' name='user secret'/>
+                      <List.Content>
+                        <List.Header as='a'>Dean Fujimoto</List.Header>
+                        <List.Description>
+                          Head of Human Resources Department
+                        </List.Description>
+                      </List.Content>
+                    </List.Item>
+                    <List.Item>
+                      <Icon color='green' name='user secret'/>
+                      <List.Content>
+                        <List.Header as='a'>Patima Poochai</List.Header>
+                        <List.Description>
+                          Director of HIM & Coding Operations
+                        </List.Description>
+                      </List.Content>
+                    </List.Item>
+                    <List.Item>
+                      <Icon color='purple' name='user secret'/>
+                      <List.Content>
+                        <List.Header as='a'>Daniel Florenco</List.Header>
+                        <List.Description>
+                          Senior President Developer
+                        </List.Description>
+                      </List.Content>
+                    </List.Item>
+                    <List.Item>
+                      <Icon color='yellow' name='user secret'/>
+                      <List.Content>
+                        <List.Header as='a'>Andrew Emmons</List.Header>
+                        <List.Description>Head of Computer Hardware Department</List.Description>
+                      </List.Content>
+                    </List.Item>
+                  </List>
+                </GridColumn>
+                <GridColumn>
+                <p style={textStyle}>Rainbow Retail is a student led initiative designed to create a safe and regulated
+                  platform for the
                   buying and selling of goods. We are dedicated to reducing the dangers of meeting strangers to purchase
                   online items. All of our members are verified through university email accounts and official school id
                   photos. With Rainbow Retail, you are guaranteed a secure place to buy, sell, and exchange with hassle
@@ -93,6 +94,9 @@ class AboutUs extends React.Component {
                 </p>
               </GridColumn>
             </Grid>
+            <div>
+            <Image src='/images/aloha.jpg' fluid/>
+            </div>
             <Header as="h2" textAlign="center" style={titleStyle}>User Policy</Header>
             <Header as="h3" textAlign="center" style={titleStyle}>Posting</Header>
             <p style={textStyle}>Rainbow Retail strive to create friendly trading platform for everyone. Users cannot

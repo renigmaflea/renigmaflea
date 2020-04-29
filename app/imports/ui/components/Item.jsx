@@ -35,7 +35,7 @@ class Item extends React.Component {
                   name='share square'/>Share</Button></Link>
               <Link to={`/profile/${this.props.item._id}`}><Button color='gray'><Icon
                   name='edit'/>Edit</Button></Link>
-              <Button onClick={() => this.removeItem(this.props.item._id)}>Delete</Button>
+              <Button color='red' onClick={() => this.removeItem(this.props.item._id)}>Delete</Button>
             </ButtonGroup>
           </Card.Content>
           <Card.Content extra>
