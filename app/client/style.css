@@ -2,3 +2,12 @@
   background: linear-gradient(180deg, #FFFFFF -46.32%, rgba(255, 255, 255, 0) 100%), #11E27E;
   margin: 0px;
 }
+
+
+.bg {
+  background-image: url('https://www.wallpapers13.com/wp-content/uploads/2016/03/Chinamans-Hat-Oahu-Hawaii-desktop-wallpaper-backgrounds-free-download-915x515.jpg');
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
