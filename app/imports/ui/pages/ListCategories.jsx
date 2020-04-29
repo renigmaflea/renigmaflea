@@ -4,7 +4,10 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Container, Divider, Header, Loader, Card } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Items } from '../../api/item/Items';
-import CategoriesCard from '../components/CategoriesCard';
+import HHACategoriesCard from '../components/HHACategoriesCard';
+import TCCategoriesCard from '../components/TCCategoriesCard';
+import TSCategoriesCard from '../components/TSCategoriesCard';
+import MISCCategoriesCard from '../components/MISCCategoriesCard';
 
 /** Renders a table containing all of the Item documents. Use <StuffItem> to render each row. */
 class ListItem extends React.Component {
@@ -33,11 +36,10 @@ class ListItem extends React.Component {
             <Divider hidden/>
             <Header as='h1' textAlign='center' style={titleStyle}>Categories</Header>
             <Card.Group> {/* replace with actual collection mapping */}
-              <CategoriesCard name='Moped' url='moped' image='/images/categoriesPic/bike.jpg'/>
-              <CategoriesCard name='Mini Fridge' url='minifridge' image='/images/categoriesPic/minifridge.jpeg'/>
-              <CategoriesCard name='Fan' url='fan' image='/images/categoriesPic/fan.jpg'/>
-              <CategoriesCard name='Macbook' url='mac' image='/images/categoriesPic/mac.jpg'/>
-              <CategoriesCard name='Server' url='server' image='/images/categoriesPic/server.jpg'/>
+              <TSCategoriesCard name='Transportation' url='moped' image='/images/categoriesPic/bike.jpg'/>
+              <HHACategoriesCard name='Household Appliances' url='minifridge' image='/images/categoriesPic/minifridge.jpeg'/>
+              <TCCategoriesCard name='Technology' url='mac' image='/images/categoriesPic/mac.jpg'/>
+              <MISCCategoriesCard name='Miscellaneous' url='server' image='/images/categoriesPic/server.jpg'/>
             </Card.Group>
           </Container>
         </div>
