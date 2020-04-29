@@ -40,7 +40,7 @@ class AboutUs extends React.Component {
               <GridColumn>
                 <List style={textStyle}>
                   <List.Item>
-                    <Icon color='red' name='user'/>
+                    <Icon color='red' name='user secret'/>
                     <List.Content>
                       <List.Header as='a'>Justin Wong</List.Header>
                       <List.Description>
@@ -49,7 +49,7 @@ class AboutUs extends React.Component {
                     </List.Content>
                   </List.Item>
                   <List.Item>
-                    <Icon color='blue' name='user'/>
+                    <Icon color='blue' name='user secret'/>
                     <List.Content>
                       <List.Header as='a'>Dean Fujimoto</List.Header>
                       <List.Description>
@@ -58,7 +58,7 @@ class AboutUs extends React.Component {
                     </List.Content>
                   </List.Item>
                   <List.Item>
-                    <Icon color='green' name='user'/>
+                    <Icon color='green' name='user secret'/>
                     <List.Content>
                       <List.Header as='a'>Patima Poochai</List.Header>
                       <List.Description>
@@ -76,7 +76,7 @@ class AboutUs extends React.Component {
                     </List.Content>
                   </List.Item>
                   <List.Item>
-                    <Icon color='yellow' name='user'/>
+                    <Icon color='yellow' name='user secret'/>
                     <List.Content>
                       <List.Header as='a'>Andrew Emmons</List.Header>
                       <List.Description>Head of Computer Hardware Department</List.Description>
