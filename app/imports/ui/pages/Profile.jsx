@@ -4,6 +4,7 @@ import { Container, Card, Header, Loader, Image, Icon } from 'semantic-ui-react'
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Items } from '../../api/item/Items';
+import Item from '../components/Item';
 
 /** Renders a table containing all of the Item documents. Use <StuffItem> to render each row. */
 class ListProfile extends React.Component {
