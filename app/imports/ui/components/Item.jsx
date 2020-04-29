@@ -49,7 +49,7 @@ class Item extends React.Component {
 
     const editStyle = {
       fontSize: '20px',
-      color: 'white', //can change back to be blue when clicked turn to purple
+      color: 'white', //can change back to be blue when clicked turn to purple 
       paddingBottom: '25px'
     }
 
