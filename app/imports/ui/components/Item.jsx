@@ -115,7 +115,7 @@ class Item extends React.Component {
                 <Button size = 'mini' onClick={() => this.removeItem(this.props.item._id)}>Delete</Button>
 
                 {/*{this.props.notes.map((note, index) => <Note key={index} note={note}/>)}*/}
-                <div owner={this.props.item.owner} itemId={this.props.item._id}/>
+                <div owner={this.props.item.owner} itemID={this.props.item._id}/>
               </div>
               <div className="extra">
                 <p></p>
