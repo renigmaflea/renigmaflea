@@ -3,7 +3,7 @@ import { Roles } from 'meteor/alanning:roles';
 import { Items } from '../../api/item/Items';
 import { Notes } from '../../api/note/Notes';
 import { Reports } from '../../api/report/Reports';
-import { Categories } from '../../api/categories/categories';
+import { Categories } from '../../api/categories/Categories';
 
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Items', function publish() {

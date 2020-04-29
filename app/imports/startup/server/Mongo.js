@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Items } from '../../api/item/Items.js';
 import { Reports } from '../../api/report/Reports';
-import { Categories } from '../../api/categories/categories';
+import { Categories } from '../../api/categories/Categories';
 
 /* eslint-disable no-console */
 
