@@ -24,6 +24,9 @@
   ],
 
   "defaultCategories": [
-    { "name": "Moped", "url": "/", "image": "/images/categoriesPic/bike.jpg" }
+    { "name": "Transportation", "url": "/", "image": "/images/categoriesPic/bike.jpg" },
+    { "name": "Technology", "url": "/", "image": "/images/categoriesPic/mac.jpg" },
+    { "name": "Household", "url": "/", "image": "/images/categoriesPic/minifridge.jpeg" },
+    { "name": "Miscellanea", "url": "/", "image": "/images/categoriesPic/lootbox.jpg" }
   ]
 }
