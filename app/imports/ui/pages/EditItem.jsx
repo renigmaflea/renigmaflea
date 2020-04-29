@@ -8,6 +8,7 @@ import {
   LongTextField,
   SubmitField,
   TextField,
+    SelectField,
 } from 'uniforms-semantic';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -20,10 +21,10 @@ class EditItem extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { firstName, lastName, address, image, description, _id } = data;
-    Items.update(_id, { $set: { firstName, lastName, address, image, description } }, (error) => (error ?
-      swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+    const { firstName, lastName, address, image, description, category, _id } = data;
+    Items.update(_id, { $set: { firstName, lastName, address, image, description, category } }, (error) => (error ?
+        swal('Error', error.message, 'error') :
+        swal('Success', 'Item updated successfully', 'success')));
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -36,7 +37,7 @@ class EditItem extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center" inverted>Edit Contact</Header>
+            <Header as="h2" textAlign="center" inverted>Edit Item</Header>
             <AutoForm schema={ItemsSchema} onSubmit={data => this.submit(data)} model={this.props.doc}>
               <Segment>
                 <TextField name='firstName'/>
@@ -44,6 +45,7 @@ class EditItem extends React.Component {
                 <TextField name='address'/>
                 <TextField name='image'/>
                 <LongTextField name='description'/>
+                <SelectField name='category'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' />
@@ -67,7 +69,7 @@ export default withTracker(({ match }) => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const documentId = match.params._id;
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Contacts');
+  const subscription = Meteor.subscribe('Items');
   return {
     doc: Items.findOne(documentId),
     ready: subscription.ready(),
