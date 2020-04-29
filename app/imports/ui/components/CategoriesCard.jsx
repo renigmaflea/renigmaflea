@@ -9,6 +9,7 @@ class CategoriesCard extends React.Component {
 
   render() {
     const textStyle = { fontWeight: '900px' };
+    const current = this.props.category;
 
     return (
         <Card centered>
@@ -16,13 +17,13 @@ class CategoriesCard extends React.Component {
             <Image
                 floated='right'
                 size='medium'
-                src={this.props.image}
+                src={current.image}
             />
           </Card.Content>
           <Card.Content textAlign='center' extra style={{ fontSize: '20px' }}>
-            <Link to='/'> {/* change to link of categories */}
+            <Link to={current.url}> {/* change to link of categories */}
               <Button color='green' fluid={true}>
-                <Header as='h1' inverted={true} style={textStyle}>{this.props.name}</Header>
+                <Header as='h1' inverted={true} style={textStyle}>{current.name}</Header>
               </Button>
             </Link>
           </Card.Content>
@@ -33,9 +34,7 @@ class CategoriesCard extends React.Component {
 
 /** Require a document to be passed to this component. */
 CategoriesCard.propTypes = {
-  name: PropTypes.object.isRequired,
-  url: PropTypes.object.isRequired,
-  image: PropTypes.object.isRequired,
+  category: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
