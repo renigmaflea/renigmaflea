@@ -5,7 +5,8 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Items } from '../../api/item/Items';
 import { Notes } from '../../api/note/Notes';
-import Contact from '../components/Item';
+import Item from '../components/Item';
+//import Contact from '../components/Item';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListItems extends React.Component {
@@ -32,11 +33,11 @@ class ListItems extends React.Component {
         <Container>
           <Header as="h2" textAlign="center" style={titleStyle}>Posted Items</Header>
           <Card.Group>
-            {this.props.contacts.map((contact, index) => <Contact
+            {this.props.items.map((item, index) => <Item
                 key={index}
-                contact={contact}
+                item={item}
                 Items={Items}
-                notes={this.props.notes.filter(note => (note.contactId === contact._id))}/>)}
+                notes={this.props.notes.filter(note => (note.itemId === item._id))}/>)}
           </Card.Group>
         </Container>
         </div>
@@ -46,7 +47,7 @@ class ListItems extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 ListItems.propTypes = {
-  contacts: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired,
   notes: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -54,10 +55,10 @@ ListItems.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Contacts');
+  const subscription = Meteor.subscribe('Items');
   const subscription2 = Meteor.subscribe('Notes');
   return {
-    contacts: Items.find({}).fetch(),
+    items: Items.find({}).fetch(),
     notes: Notes.find({}).fetch(),
     ready: subscription.ready() && subscription2.ready(),
   };

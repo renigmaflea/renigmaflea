@@ -19,23 +19,23 @@ class Item extends React.Component {
             <Image
                 floated='right'
                 size='mini'
-                src={this.props.contact.image}
+                src={this.props.item.image}
             />
-            <Card.Header>{this.props.contact.firstName} {this.props.contact.lastName}</Card.Header>
-            <Card.Meta>{this.props.contact.address}</Card.Meta>
+            <Card.Header>{this.props.item.firstName} {this.props.item.lastName}</Card.Header>
+            <Card.Meta>{this.props.item.address}</Card.Meta>
             <Card.Description>
-              {this.props.contact.description} <strong></strong>
+              {this.props.item.description} <strong></strong>
             </Card.Description>
           </Card.Content>
           <Card.Content>
             <ButtonGroup size='mini'>
-              <Link to={`/profile/${this.props.contact._id}`}><Button color='yellow'><Icon
+              <Link to={`/profile/${this.props.item._id}`}><Button color='yellow'><Icon
                   name='star'/>Favorite</Button></Link>
-              <Link to={`/profile/${this.props.contact._id}`}><Button color='blue'><Icon
+              <Link to={`/profile/${this.props.item._id}`}><Button color='blue'><Icon
                   name='share square'/>Share</Button></Link>
-              <Link to={`/profile/${this.props.contact._id}`}><Button color='gray'><Icon
+              <Link to={`/profile/${this.props.item._id}`}><Button color='gray'><Icon
                   name='edit'/>Edit</Button></Link>
-              <Button onClick={() => this.removeItem(this.props.contact._id)}>Delete</Button>
+              <Button onClick={() => this.removeItem(this.props.item._id)}>Delete</Button>
             </ButtonGroup>
           </Card.Content>
           <Card.Content extra>
@@ -44,7 +44,7 @@ class Item extends React.Component {
             </Feed>
           </Card.Content>
           <Card.Content extra>
-            <AddNote owner={this.props.contact.owner} contactId={this.props.contact._id}/>
+            <AddNote owner={this.props.item.owner} itemId={this.props.item._id}/>
           </Card.Content>
         </Card>
     );
@@ -53,7 +53,7 @@ class Item extends React.Component {
 
 /** Require a document to be passed to this component. */
 Item.propTypes = {
-  contact: PropTypes.object.isRequired,
+  item: PropTypes.object.isRequired,
   Items: PropTypes.object.isRequired,
   notes: PropTypes.array.isRequired,
 
