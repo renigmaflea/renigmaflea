@@ -5,16 +5,16 @@ import { Reports } from '../../api/report/Reports';
 /* eslint-disable no-console */
 
 /** Initialize the database with a default data document. */
-function addContact(data) {
+function addItem(data) {
   console.log(`  Adding: ${data.lastName} (${data.owner})`);
   Items.insert(data);
 }
 
 /** Initialize the collection if empty. */
 if (Items.find().count() === 0) {
-  if (Meteor.settings.defaultContacts) {
-    console.log('Creating Contact data.');
-    Meteor.settings.defaultContacts.map(data => addContact(data));
+  if (Meteor.settings.defaultItems) {
+    console.log('Creating Item data.');
+    Meteor.settings.defaultItems.map(data => addItem(data));
   }
 }
 
