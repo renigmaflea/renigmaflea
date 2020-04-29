@@ -14,7 +14,7 @@ Meteor.publish('Items', function publish() {
 });
 
 /** This subscription publishes only the documents associated with the logged in user */
-Meteor.publish('Contacts', function publish() {
+Meteor.publish('Items', function publish() {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return Items.find({ owner: username });
@@ -23,7 +23,7 @@ Meteor.publish('Contacts', function publish() {
 });
 
 /** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
-Meteor.publish('ContactsAdmin', function publish() {
+Meteor.publish('ItemsAdmin', function publish() {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Items.find();
   }

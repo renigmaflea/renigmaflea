@@ -9,10 +9,8 @@ import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListProfile from '../pages/ListProfile';
 import ListItems from '../pages/ListItems';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
+import ListItemsAdmin from '../pages/ListItemsAdmin';
 import ListCategories from '../pages/ListCategories';
-import AddStuff from '../pages/AddStuff';
-import EditStuff from '../pages/EditStuff';
 import AddItem from '../pages/AddItem';
 import EditItem from '../pages/EditItem';
 import NotFound from '../pages/NotFound';
@@ -46,7 +44,7 @@ class App extends React.Component {
               <ProtectedRoute path="/edit/:_id" component={EditItem}/>
               <ProtectedRoute path="/reportguide/" component={ReportGuide}/>
               <ProtectedRoute path="/report/:_id" component={ReportItem}/>
-              <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+              <AdminProtectedRoute path="/admin" component={ListItemsAdmin}/>
               <ProtectedRoute path="/adminreports" component={AdminReports}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <ProtectedRoute path="/testreport" component={TestReport}/>
