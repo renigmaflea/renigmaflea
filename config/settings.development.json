@@ -21,5 +21,9 @@
     { "firstName": "Red",
       "lastName": "Green", "address": "Somwhere else", "image": "something else", "description": "Some other description", "owner": "john@foo.com"
     }
+  ],
+
+  "defaultCategories": [
+    { "name": "Moped", "url": "/", "image": "/images/categoriesPic/bike.jpg" }
   ]
 }

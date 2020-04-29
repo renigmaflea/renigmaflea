@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Items } from '../../api/item/Items.js';
 import { Reports } from '../../api/report/Reports';
+import { Categories } from '../../api/categories/categories';
 
 /* eslint-disable no-console */
 
@@ -43,5 +44,19 @@ if (Items.find().count() === 0) {
   if (Meteor.settings.defaultItems) {
     console.log('Creating default items.');
     Meteor.settings.defaultItems.map(data => addItems(data));
+  }
+}
+
+/** Initialize the database with a default categories. */
+function addCategory(data) {
+  console.log(`  Adding category: ${data.name}`);
+  Categories.insert(data);
+}
+
+/** Initialize the reports collection if empty. */
+if (Categories.find().count() === 0) {
+  if (Meteor.settings.defaultCategories) {
+    console.log('Creating default categories.');
+    Meteor.settings.defaultCategories.map(data => addCategory(data));
   }
 }
