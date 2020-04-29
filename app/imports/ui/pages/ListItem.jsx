@@ -22,7 +22,10 @@ class ListItem extends React.Component {
         <Container>
           <Header as="h2" textAlign="center">Hello World</Header>
           <Card.Group>
-            {this.props.items.map((item, index) => <Item key={index} item={item}/>)}
+            {this.props.items.map((item, index) => <Item
+                key={index}
+                Items={Items}
+                item={item}/>)}
           </Card.Group>
         </Container>
     );
