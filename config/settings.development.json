@@ -21,5 +21,12 @@
     { "firstName": "Red",
       "lastName": "Green", "address": "Somwhere else", "image": "something else", "description": "Some other description", "owner": "john@foo.com"
     }
+  ],
+
+  "defaultCategories": [
+    { "name": "Transportation", "url": "/", "image": "/images/categoriesPic/bike.jpg" },
+    { "name": "Technology", "url": "/", "image": "/images/categoriesPic/mac.jpg" },
+    { "name": "Household", "url": "/", "image": "/images/categoriesPic/minifridge.jpeg" },
+    { "name": "Miscellanea", "url": "/", "image": "/images/categoriesPic/lootbox.jpg" }
   ]
 }
