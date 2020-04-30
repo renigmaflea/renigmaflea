@@ -10,7 +10,7 @@ import Landing from '../pages/Landing';
 import ListProfile from '../pages/ListProfile';
 import ListItemsAdmin from '../pages/ListItemsAdmin';
 import ListCategories from '../pages/ListCategories';
-
+import ReportGuide from '../pages/ReportGuide';
 import AddItem from '../pages/AddItem';
 import EditItem from '../pages/EditItem';
 import NotFound from '../pages/NotFound';
@@ -50,6 +50,7 @@ class App extends React.Component {
               <ProtectedRoute path="/listmisc" component={ListMISC}/>
               <ProtectedRoute path="/add" component={AddItem}/>
               <ProtectedRoute path="/edit/:_id" component={EditItem}/>
+              <ProtectedRoute path="/reportguide" component={ReportGuide}/>
               <ProtectedRoute path="/report/:_id" component={ReportItem}/>
               <AdminProtectedRoute path="/admin" component={ListItemsAdmin}/>
               <ProtectedRoute path="/adminreports" component={AdminReports}/>
