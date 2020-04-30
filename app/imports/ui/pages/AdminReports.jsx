@@ -26,7 +26,7 @@ class AdminReports extends React.Component {
   }
 
   emptyReports() {
-    if (this.props.items.length) {
+    if (this.props.reports.length === 0) {
       return (
           <div>
             <Header as='h2'>No Reports</Header>
