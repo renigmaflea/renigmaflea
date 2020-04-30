@@ -25,6 +25,17 @@ class AdminReports extends React.Component {
     return (this.props.ready) ? this.renderPage(reportedItems) : <Loader active>Getting data</Loader>;
   }
 
+  emptyReports() {
+    if (this.props.items.length) {
+      return (
+          <div>
+            <Header as='h2'>No Reports</Header>
+            <Header as='h3'>(Report some items to see this functionality)</Header>
+          </div>
+      );
+    }
+  }
+
   /** Render the page once subscriptions have been received. */
   renderPage(reportedItems) {
     return (
@@ -42,13 +53,16 @@ class AdminReports extends React.Component {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {reportedItems.map((item) => <ReportRow key={item._id} item={item}
-                                                      reportsArray={this.props.reports}
-                                                      reportsCollection={Reports}
-              />)
-              /* Report prop technical debt, should change later */ }
+              {
+                reportedItems.map((item) => <ReportRow key={item._id} item={item}
+                                                       reportsArray={this.props.reports}
+                                                       reportsCollection={Reports}
+                />)
+                /* Report prop technical debt, should change later */
+              }
             </Table.Body>
           </Table>
+          { this.emptyReports() }
         </Container>
     );
   }
