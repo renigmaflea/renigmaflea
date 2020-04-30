@@ -1,8 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Items } from '../../api/item/Items';
-import { Notes } from '../../api/note/Notes';
 import { Reports } from '../../api/report/Reports';
+import { Categories } from '../../api/categories/Categories';
 
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Items', function publish() {
@@ -46,4 +46,10 @@ Meteor.publish('Reports', function publish() {
   return this.ready();
 });
 
-/** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
+/** Publishes categories to logged in users */
+Meteor.publish('Categories', function publish() {
+  if (this.userId) {
+    return Categories.find();
+  }
+  return this.ready();
+});
