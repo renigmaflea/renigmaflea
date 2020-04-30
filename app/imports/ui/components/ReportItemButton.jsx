@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 class ReportItemButton extends React.Component {
   render() {
     return (
-        <Link to={`/report/${this.props.itemID}`}><Button>Report this item</Button></Link>
+        <Link to={`/report/${this.props.itemID}`}><Button color='red'>Report this item</Button></Link>
     );
   }
 }

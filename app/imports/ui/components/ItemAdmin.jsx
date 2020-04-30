@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import Note from './Note';
 import AddNote from '../components/AddNote';
+import ReportItemButton from './ReportItemButton';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class ItemAdmin extends React.Component {
@@ -132,7 +133,9 @@ class ItemAdmin extends React.Component {
                   name='star'/>Favorite</Button></Link>
               <Link to={`/profile/${this.props.item._id}`}><Button size = 'mini' color='blue'><Icon
                   name='share square'/>Share</Button></Link>
-
+              <div className="extra">
+                <ReportItemButton itemID={this.props.item._id}/>
+              </div>
             </div>
           </div>
         </div>
