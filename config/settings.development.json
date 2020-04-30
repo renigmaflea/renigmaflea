@@ -36,9 +36,9 @@
   ],
 
   "defaultCategories": [
-    { "name": "Transportation", "url": "/", "image": "/images/categoriesPic/bike.jpg" },
-    { "name": "Technology", "url": "/", "image": "/images/categoriesPic/mac.jpg" },
-    { "name": "Household", "url": "/", "image": "/images/categoriesPic/minifridge.jpeg" },
-    { "name": "Miscellanea", "url": "/", "image": "/images/categoriesPic/lootbox.jpg" }
+    { "name": "Transportation", "url": "/listts", "image": "/images/categoriesPic/bike.jpg" },
+    { "name": "Technology", "url": "/listtc", "image": "/images/categoriesPic/mac.jpg" },
+    { "name": "Household", "url": "/listhha", "image": "/images/categoriesPic/minifridge.jpeg" },
+    { "name": "Miscellanea", "url": "/listmisc", "image": "/images/categoriesPic/lootbox.jpg" }
   ]
 }
