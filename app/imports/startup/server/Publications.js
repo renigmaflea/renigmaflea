@@ -1,9 +1,12 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
+import SimpleSchema from 'simpl-schema';
 import { Items } from '../../api/item/Items';
 import { Reports } from '../../api/report/Reports';
 import { Categories } from '../../api/categories/Categories';
 import { Messages } from '../../api/messages/Messages';
+
+const MAX_TODOS = 10;
 
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Items', function publish() {
@@ -55,20 +58,21 @@ Meteor.publish('Categories', function publish() {
   return this.ready();
 });
 
-/** Publishes a user's outgoing messages */
-Meteor.publish('MessagesSend', function publish() {
+/** Publishes a user's related messages */
+Meteor.publish('ThemMessages', function publish(otherUser) {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Messages.find({ sender: username });
-  }
-  return this.ready();
-});
+    const options = {
+      sort: { createdAt: -1 },
+    };
 
-/** Publishes a user's outgoing messages */
-Meteor.publish('MessagesReceive', function publish() {
-  if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
-    return Messages.find({ receiver: username });
+    return Messages.find({
+      $or: [
+        { $and: [{ sender: otherUser }, { receiver: username }] },
+        { $and: [{ sender: username }, { receiver: otherUser }] }
+      ]
+    }, options);
+    // ^ looks for messages that is related to the user ( to/from username )
   }
   return this.ready();
 });

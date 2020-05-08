@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header, Feed, Icon, Visibility } from 'semantic-ui-react';
+import { Grid, Segment, Header, Feed, Icon, Visibility, Button } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
@@ -50,7 +50,7 @@ class PrivateMessage extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
-
+    const messageHere = this.props.messages;
     let fRef = null;
     return (
         <div style={backgroundStyle}>
@@ -87,13 +87,17 @@ class PrivateMessage extends React.Component {
 
 PrivateMessage.propTypes = {
   doc: PropTypes.object,
+  messages: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(({ match }) => {
-  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const documentId = match.params._id;
+  const subscription = Meteor.subscribe('ThemMessages', documentId);
   return {
     doc: documentId,
+    messages: Messages.find().fetch(),
+    ready: subscription.ready(),
   };
 })(PrivateMessage);
