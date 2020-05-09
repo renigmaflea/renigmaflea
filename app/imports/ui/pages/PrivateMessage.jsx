@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header, Feed, Icon, Visibility, Button } from 'semantic-ui-react';
+import { Grid, Segment, Header, Feed, Icon, Visibility, Button, Image } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
@@ -24,6 +24,7 @@ const backgroundStyle = {
 
 const MessageBoxStyle = {
   overflowY: 'scroll',
+  marginTop: '10px',
   height: '65vh',
   backgroundColor: 'white',
 };
@@ -42,7 +43,7 @@ class PrivateMessage extends React.Component {
           if (error) {
             swal('Error', error.message, 'error');
           } else {
-            swal('Success', 'Item reported successfully', 'success');
+            // swal('Success', 'Item reported successfully', 'success');
             formRef.reset();
           }
         });
@@ -50,34 +51,42 @@ class PrivateMessage extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
-    const messageHere = this.props.messages;
     let fRef = null;
+    const SndPartyUsername = this.props.doc;
     return (
         <div style={backgroundStyle}>
           <Grid container centered>
             <Grid.Column>
-              <Feed style={MessageBoxStyle}>
-                <AMessage/>
-                <AMessage/>
-                <AMessage/>
-                <AMessage/>
-                <AMessage/>
-                <AMessage/>
-                <AMessage/>
-              </Feed>
+              <Segment style={MessageBoxStyle}>
+                <Grid>
+                  {this.props.messages.map(
+                      function (message) {
+                        let leftSide = false;
+                        if (SndPartyUsername === message.sender) {
+                          leftSide = true;
+                        }
 
-              <AutoForm ref={ref => { fRef = ref; }} schema={formSchema}
-              onSubmit={data => this.submit(data, this.props.doc, fRef)} >
-                <Grid container centered>
-                  <Grid.Column width={9}>
-                    <TextField name='message'/>
-                    <ErrorsField/>
-                  </Grid.Column>
-                  {/*<Grid.Column>*/}
-                  {/*  <SubmitField value='Report this Item'/>*/}
-                  {/*</Grid.Column>*/}
+                        return (
+                            <AMessage key={message._id} buyerSide={leftSide} message={message}/>
+                        );
+                      }
+                  )}
                 </Grid>
-              </AutoForm>
+              </Segment>
+
+              <Segment>
+                <AutoForm ref={ref => {
+                  fRef = ref;
+                }} schema={formSchema}
+                             onSubmit={data => this.submit(data, this.props.doc, fRef)}>
+                  <Grid container centered>
+                    <Grid.Column width={16}>
+                      <TextField name='message'/>
+                      <ErrorsField/>
+                    </Grid.Column>
+                  </Grid>
+                </AutoForm>
+              </Segment>
             </Grid.Column>
           </Grid>
         </div>
@@ -86,7 +95,7 @@ class PrivateMessage extends React.Component {
 }
 
 PrivateMessage.propTypes = {
-  doc: PropTypes.object,
+  doc: PropTypes.string.isRequired,
   messages: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };

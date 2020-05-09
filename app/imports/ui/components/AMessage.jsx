@@ -1,40 +1,51 @@
 import React from 'react';
-import { Button, Table, Icon, Feed } from 'semantic-ui-react';
+import { Segment, Image, Message, Header, Grid } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import _ from 'underscore';
 
+const timeStyleLeft = {
+  fontWeight: 'bold',
+};
+
+const timeStyleRight = {
+  fontWeight: 'bold',
+  textAlign: 'right',
+};
+const textRight = {
+  textAlign: 'right',
+};
+
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class AMessage extends React.Component {
-
   render() {
-    return (
-        <Feed.Event>
-          <Feed.Label image='/images/users/user4.jpg' />
-          <Feed.Content>
-            <Feed.Summary>
-              <a>Joe Henderson</a> posted on his page
-              <Feed.Date>3 days ago</Feed.Date>
-            </Feed.Summary>
-            <Feed.Extra text>
-              Ours is a life of constant reruns. We're always circling back to where
-              we'd we started, then starting all over again. Even if we don't run
-              extra laps that day, we surely will come back for more of the same
-              another day soon.
-            </Feed.Extra>
-            <Feed.Meta>
-              <Feed.Like>
-                <Icon name='like' />5 Likes
-              </Feed.Like>
-            </Feed.Meta>
-          </Feed.Content>
-        </Feed.Event>
-    );
+    return (this.props.buyerSide) ?
+        <Grid.Row>
+          <Grid.Column>
+            <Image src='images/users/user4.jpg' size='mini' circular/>
+          </Grid.Column>
+          <Grid.Column width={10}>
+            <div style={timeStyleLeft}>{this.props.message.createdAt}</div>
+            {this.props.message.message}
+          </Grid.Column>
+        </Grid.Row>
+        :
+        <Grid.Row>
+          <Grid.Column floated='right' width={10}>
+            <div style={timeStyleRight}>{this.props.message.createdAt}</div>
+            <div style={textRight}>{this.props.message.message}</div>
+          </Grid.Column>
+          <Grid.Column>
+            <Image src='images/users/user5.jpeg' size='mini' circular/>
+          </Grid.Column>
+        </Grid.Row>;
   }
 }
 
 /** Require a document to be passed to this component. */
 AMessage.propTypes = {
+  buyerSide: PropTypes.bool.isRequired,
+  message: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
