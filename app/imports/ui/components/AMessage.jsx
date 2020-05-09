@@ -3,6 +3,7 @@ import { Segment, Image, Message, Header, Grid } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import _ from 'underscore';
+import momentjs from 'moment';
 
 const timeStyleLeft = {
   fontWeight: 'bold',
@@ -15,6 +16,11 @@ const timeStyleRight = {
 const textRight = {
   textAlign: 'right',
 };
+const imageStyle = {
+  width: '40px',
+  height: '40px',
+  objectFit: 'cover',
+};
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class AMessage extends React.Component {
@@ -22,21 +28,21 @@ class AMessage extends React.Component {
     return (this.props.buyerSide) ?
         <Grid.Row>
           <Grid.Column>
-            <Image src='images/users/user4.jpg' size='mini' circular/>
+            <Image src={this.props.image} style={imageStyle} circular/>
           </Grid.Column>
           <Grid.Column width={10}>
-            <div style={timeStyleLeft}>{this.props.message.createdAt}</div>
+            <div style={timeStyleLeft}>{momentjs(this.props.message.createdAt).fromNow()}</div>
             {this.props.message.message}
           </Grid.Column>
         </Grid.Row>
         :
         <Grid.Row>
           <Grid.Column floated='right' width={10}>
-            <div style={timeStyleRight}>{this.props.message.createdAt}</div>
+            <div style={timeStyleRight}>{momentjs(this.props.message.createdAt).fromNow()}</div>
             <div style={textRight}>{this.props.message.message}</div>
           </Grid.Column>
           <Grid.Column>
-            <Image src='images/users/user5.jpeg' size='mini' circular/>
+            <Image src={this.props.image} style={imageStyle} size='mini' circular/>
           </Grid.Column>
         </Grid.Row>;
   }
@@ -46,6 +52,7 @@ class AMessage extends React.Component {
 AMessage.propTypes = {
   buyerSide: PropTypes.bool.isRequired,
   message: PropTypes.object.isRequired,
+  image: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

@@ -62,7 +62,7 @@ Meteor.publish('Categories', function publish() {
 Meteor.publish('ThemMessages', function publish(otherUser) {
   if (this.userId) {
     const options = {
-      sort: { createdAt: -1 },
+      sort: { createdAt: 1 },
     };
 
     const username = Meteor.users.findOne(this.userId).username;

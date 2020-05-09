@@ -9,7 +9,7 @@ const Messages = new Mongo.Collection('Messages');
 const MessageSchema = new SimpleSchema({
   sender: String,
   receiver: String,
-  createdAt: String,
+  createdAt: Number, // Epoch time
   message: String,
 }, { tracker: Tracker });
 

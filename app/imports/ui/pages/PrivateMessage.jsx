@@ -27,6 +27,14 @@ const MessageBoxStyle = {
   marginTop: '10px',
   height: '65vh',
   backgroundColor: 'white',
+  display: 'flex',
+  flexDirection: 'column-reverse',
+};
+
+const imageStyle = {
+  objectFit: 'cover',
+  width: '50px',
+  height: '50px',
 };
 
 /** Renders the Page for adding a document. */
@@ -37,7 +45,7 @@ class PrivateMessage extends React.Component {
     const { message } = data;
     const sender = Meteor.user().username; { /* need to add item id */ }
     const receiver = id;
-    const createdAt = new Date();
+    const createdAt = Date.now();
     Messages.insert({ sender, receiver, createdAt, message },
         (error) => {
           if (error) {
@@ -51,23 +59,41 @@ class PrivateMessage extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
+    console.log();
     let fRef = null;
     const SndPartyUsername = this.props.doc;
+    const SndPartyImage = 'images/users/user3.jpg';
+    const userImage = 'images/users/defaultUser.png';
     return (
         <div style={backgroundStyle}>
           <Grid container centered>
             <Grid.Column>
+              <Segment>
+                <Grid>
+                  <Grid.Row>
+                    <Grid.Column>
+                      <Image src={SndPartyImage} style={imageStyle} size='large'/>
+                    </Grid.Column>
+                      <Grid.Column width={10}>
+                        <Header>Chatting with {SndPartyUsername}</Header>
+                      </Grid.Column>
+                  </Grid.Row>
+                </Grid>
+              </Segment>
+
               <Segment style={MessageBoxStyle}>
                 <Grid>
                   {this.props.messages.map(
                       function (message) {
                         let leftSide = false;
+                        let image = userImage;
                         if (SndPartyUsername === message.sender) {
                           leftSide = true;
+                          image = SndPartyImage;
                         }
 
                         return (
-                            <AMessage key={message._id} buyerSide={leftSide} message={message}/>
+                            <AMessage key={message._id} buyerSide={leftSide} message={message} image={image}/>
                         );
                       }
                   )}
@@ -75,7 +101,7 @@ class PrivateMessage extends React.Component {
               </Segment>
 
               <Segment>
-                <AutoForm ref={ref => {
+                <AutoForm autoComplete='off' autoFocus='on' ref={ref => {
                   fRef = ref;
                 }} schema={formSchema}
                              onSubmit={data => this.submit(data, this.props.doc, fRef)}>
