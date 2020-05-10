@@ -8,6 +8,7 @@ import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import SimpleSchema from 'simpl-schema';
 import PropTypes from 'prop-types';
 import { Messages } from '../../api/messages/Messages';
+import { Chat } from '../../api/messages/Chat';
 import AMessage from '../components/AMessage';
 
 
@@ -49,12 +50,25 @@ class PrivateMessage extends React.Component {
     Messages.insert({ sender, receiver, createdAt, message },
         (error) => {
           if (error) {
-            swal('Error', error.message, 'error');
+            swal('Message error', error.message, 'error');
           } else {
             // swal('Success', 'Item reported successfully', 'success');
             formRef.reset();
           }
         });
+
+    console.log(this.props.chat.length);
+    if (this.props.chat.length === 0) {
+      const users = [sender, receiver];
+      Chat.insert({ users },
+          (error) => {
+            if (error) {
+              swal('Chat error', error.message, 'error');
+            } else {
+              // swal('Success', 'Item reported successfully', 'success');
+            }
+          });
+    }
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -123,6 +137,7 @@ class PrivateMessage extends React.Component {
 PrivateMessage.propTypes = {
   doc: PropTypes.string.isRequired,
   messages: PropTypes.array.isRequired,
+  chat: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -130,9 +145,11 @@ PrivateMessage.propTypes = {
 export default withTracker(({ match }) => {
   const documentId = match.params._id;
   const subscription = Meteor.subscribe('ThemMessages', documentId);
+  const subscription2 = Meteor.subscribe('ChatInMessage', documentId);
   return {
     doc: documentId,
     messages: Messages.find().fetch(),
-    ready: subscription.ready(),
+    chat: Chat.find().fetch(),
+    ready: subscription.ready() && subscription2.ready(),
   };
 })(PrivateMessage);

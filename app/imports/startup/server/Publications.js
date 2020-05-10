@@ -5,8 +5,7 @@ import { Items } from '../../api/item/Items';
 import { Reports } from '../../api/report/Reports';
 import { Categories } from '../../api/categories/Categories';
 import { Messages } from '../../api/messages/Messages';
-
-const MAX_TODOS = 10;
+import { Chat } from '../../api/messages/Chat';
 
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Items', function publish() {
@@ -70,7 +69,44 @@ Meteor.publish('ThemMessages', function publish(otherUser) {
       $or: [
         { $and: [{ sender: otherUser }, { receiver: username }] },
         { $and: [{ sender: username }, { receiver: otherUser }] }
-      ]
+      ],
+    }, options);
+    // ^ looks for messages that is related to the user ( to/from username )
+  }
+  return this.ready();
+});
+
+/** Publishes a user's related messages */
+Meteor.publish('ChatInMessage', function publish(otherUser) {
+  if (this.userId) {
+    const options = {
+      sort: { createdAt: -1 },
+    };
+
+    const username = Meteor.users.findOne(this.userId).username;
+    return Chat.find({
+      $and: [
+        { users: { $in: [username] } },
+        { users: { $in: [otherUser] } },
+      ],
+    }, options);
+    // ^ looks for messages that is related to the user ( to/from username )
+  }
+  return this.ready();
+});
+
+// users: { $in: [username, otherUser] }
+
+/** Publishes a user's related messages */
+Meteor.publish('ChatInNavbar', function publish() {
+  if (this.userId) {
+    const options = {
+      sort: { createdAt: -1 },
+    };
+
+    const username = Meteor.users.findOne(this.userId).username;
+    return Chat.find({
+      users: { $in: [username] },
     }, options);
     // ^ looks for messages that is related to the user ( to/from username )
   }
