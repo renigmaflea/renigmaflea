@@ -4,22 +4,12 @@ import { Dropdown, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, Link, NavLink } from 'react-router-dom';
-import swal from 'sweetalert';
 import _ from 'underscore';
 import { ChatNavBar } from '../../api/messages/ChatNavbar';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Chats extends React.Component {
   render() {
-    // console.log(_.map(_.pluck(this.props.chatNavBar, 'users'), (users) => {
-    //   // copied off of stack overflow i don't know what kind of magic they used
-    //   const index = users.indexOf(Meteor.user().username);
-    //   if (index > -1) {
-    //     users.splice(index, 1);
-    //   }
-    //   return users.pop();
-    // }));
-
     const chatList = _.map(_.pluck(this.props.chatNavBar, 'users'), (users) => {
       // copied off of stack overflow i don't know what kind of magic they used
       const index = users.indexOf(Meteor.user().username);
@@ -28,15 +18,22 @@ class Chats extends React.Component {
       }
       return users.pop();
     });
+    // console.log(chatList);
     return (
-        <Dropdown text='Chat' pointing="top right" icon={'envelope'}>
-          <Dropdown.Menu>
-            {chatList.map((name, index) => <Dropdown.Item
-                key={index}
-                text={name} as={NavLink} exact to={`/message/${name}`}/>)}
-            <Dropdown.Item text="admin@foo.com" as={NavLink} exact to="/message/admin@foo.com"/>
-          </Dropdown.Menu>
-        </Dropdown>
+        this.props.chatNavBar.length === 0 ?
+            <Dropdown text='Chat' pointing="top right" icon={'envelope'}>
+              <Dropdown.Menu>
+                <Dropdown.Item>No messages available</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            :
+            <Dropdown text={`Chat(${this.props.chatNavBar.length})`} pointing="top right" icon={'envelope'}>
+              <Dropdown.Menu>
+                {chatList.map((name, index) => <Dropdown.Item
+                    key={index}
+                    text={name} as={NavLink} exact to={`/message/${name}`}/>)}
+              </Dropdown.Menu>
+            </Dropdown>
     );
   }
 }
