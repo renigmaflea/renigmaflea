@@ -9,6 +9,7 @@ import SimpleSchema from 'simpl-schema';
 import PropTypes from 'prop-types';
 import { Messages } from '../../api/messages/Messages';
 import { Chat } from '../../api/messages/Chat';
+import { ChatNavBar } from '../../api/messages/ChatNavbar';
 import AMessage from '../components/AMessage';
 
 
@@ -57,13 +58,22 @@ class PrivateMessage extends React.Component {
           }
         });
 
-    console.log(this.props.chat.length);
+    // console.log(this.props.chat.length);
     if (this.props.chat.length === 0) {
       const users = [sender, receiver];
+      // insert into two collections, but they should have the same content
       Chat.insert({ users },
           (error) => {
             if (error) {
               swal('Chat error', error.message, 'error');
+            } else {
+              // swal('Success', 'Item reported successfully', 'success');
+            }
+          });
+      ChatNavBar.insert({ users },
+          (error) => {
+            if (error) {
+              swal('ChatNavBar error', error.message, 'error');
             } else {
               // swal('Success', 'Item reported successfully', 'success');
             }
@@ -73,7 +83,7 @@ class PrivateMessage extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
-    console.log();
+    console.log(this.props.chat);
     let fRef = null;
     const SndPartyUsername = this.props.doc;
     const SndPartyImage = 'images/users/user3.jpg';
@@ -138,6 +148,7 @@ PrivateMessage.propTypes = {
   doc: PropTypes.string.isRequired,
   messages: PropTypes.array.isRequired,
   chat: PropTypes.array.isRequired,
+  chatNavBar: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -146,10 +157,12 @@ export default withTracker(({ match }) => {
   const documentId = match.params._id;
   const subscription = Meteor.subscribe('ThemMessages', documentId);
   const subscription2 = Meteor.subscribe('ChatInMessage', documentId);
+  const subscription3 = Meteor.subscribe('ChatInNavbar');
   return {
     doc: documentId,
     messages: Messages.find().fetch(),
     chat: Chat.find().fetch(),
-    ready: subscription.ready() && subscription2.ready(),
+    chatNavBar: ChatNavBar.find().fetch(),
+    ready: subscription.ready() && subscription2.ready() && subscription3.ready(),
   };
 })(PrivateMessage);

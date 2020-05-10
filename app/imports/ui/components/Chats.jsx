@@ -1,0 +1,42 @@
+import React from 'react';
+import { Meteor } from 'meteor/meteor';
+import { Dropdown, Header } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import { withTracker } from 'meteor/react-meteor-data';
+import { withRouter, Link, NavLink } from 'react-router-dom';
+import swal from 'sweetalert';
+import _ from 'underscore';
+import { ChatNavBar } from '../../api/messages/ChatNavbar';
+
+/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+class Chats extends React.Component {
+  render() {
+    console.log(_.pluck(this.props.chatNavBar), 'users');
+    return (
+        <Dropdown text='Chat' pointing="top right" icon={'envelope'}>
+          <Dropdown.Menu>
+            {}
+            <Dropdown.Item text="admin@foo.com" as={NavLink} exact to="/message/admin@foo.com"/>
+          </Dropdown.Menu>
+        </Dropdown>
+    );
+  }
+}
+
+/** Require a document to be passed to this component. */
+Chats.propTypes = {
+  chatNavBar: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
+};
+
+/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
+const ChatsContainer = withTracker(() => {
+  const subscription = Meteor.subscribe('ChatInNavBar');
+  return {
+    chatNavBar: ChatNavBar.find().fetch(),
+    ready: subscription.ready(),
+  };
+})(Chats);
+
+/** Wrap this component in withRouter since we use the <Link> React Router element. */
+export default withRouter(ChatsContainer);

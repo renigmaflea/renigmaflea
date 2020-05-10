@@ -6,6 +6,7 @@ import { Reports } from '../../api/report/Reports';
 import { Categories } from '../../api/categories/Categories';
 import { Messages } from '../../api/messages/Messages';
 import { Chat } from '../../api/messages/Chat';
+import { ChatNavBar } from '../../api/messages/ChatNavbar';
 
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Items', function publish() {
@@ -90,25 +91,23 @@ Meteor.publish('ChatInMessage', function publish(otherUser) {
         { users: { $in: [otherUser] } },
       ],
     }, options);
-    // ^ looks for messages that is related to the user ( to/from username )
+    // ^ return the unique chat object that user and otherUser is in
   }
   return this.ready();
 });
 
-// users: { $in: [username, otherUser] }
-
 /** Publishes a user's related messages */
-Meteor.publish('ChatInNavbar', function publish() {
+Meteor.publish('ChatInNavBar', function publish() {
   if (this.userId) {
     const options = {
       sort: { createdAt: -1 },
     };
 
     const username = Meteor.users.findOne(this.userId).username;
-    return Chat.find({
+    return ChatNavBar.find({
       users: { $in: [username] },
     }, options);
-    // ^ looks for messages that is related to the user ( to/from username )
+    // ^ looks for chats that user is in
   }
   return this.ready();
 });
