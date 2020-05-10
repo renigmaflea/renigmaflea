@@ -7,6 +7,7 @@ import { withRouter, Link } from 'react-router-dom';
 import Note from './Note';
 import AddNote from '../components/AddNote';
 import ReportItemButton from './ReportItemButton';
+import ContactSellerButton from './ContactSellerButton';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class ItemAdmin extends React.Component {
@@ -135,6 +136,7 @@ class ItemAdmin extends React.Component {
                   name='share square'/>Share</Button></Link>
               <div className="extra">
                 <ReportItemButton itemID={this.props.item._id}/>
+                <ContactSellerButton username={this.props.item.owner}/>
               </div>
             </div>
           </div>

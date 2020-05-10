@@ -27,6 +27,7 @@ import ListHHA from '../pages/ListHHA';
 import ListTC from '../pages/ListTC';
 import ListTS from '../pages/ListTS';
 import ListMISC from '../pages/ListMISC';
+import PrivateMessage from '../pages/PrivateMessage';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -52,6 +53,7 @@ class App extends React.Component {
               <ProtectedRoute path="/edit/:_id" component={EditItem}/>
               <ProtectedRoute path="/reportguide" component={ReportGuide}/>
               <ProtectedRoute path="/report/:_id" component={ReportItem}/>
+              <ProtectedRoute path="/message/:_id" component={PrivateMessage}/>
               <AdminProtectedRoute path="/admin" component={ListItemsAdmin}/>
               <ProtectedRoute path="/adminreports" component={AdminReports}/>
               <ProtectedRoute path="/signout" component={Signout}/>

@@ -1,9 +1,10 @@
 import React from 'react';
-import { Card, Image, Feed, Icon, Button, ButtonGroup } from 'semantic-ui-react';
+import { Card, Image, Feed, Icon, Button, ButtonGroup, Grid } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import Note from './Note';
 import AddNote from '../components/AddNote';
+import ContactSellerButton from './ContactSellerButton';
 import ReportItemButton from './ReportItemButton';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -133,6 +134,7 @@ class Item extends React.Component {
                   name='share square'/>Share</Button></Link>
               <div className="extra">
                 <ReportItemButton itemID={this.props.item._id}/>
+                <ContactSellerButton username={this.props.item.owner}/>
               </div>
 
             </div>
