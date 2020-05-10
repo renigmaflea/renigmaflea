@@ -11,11 +11,29 @@ import { ChatNavBar } from '../../api/messages/ChatNavbar';
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Chats extends React.Component {
   render() {
-    console.log(_.pluck(this.props.chatNavBar), 'users');
+    // console.log(_.map(_.pluck(this.props.chatNavBar, 'users'), (users) => {
+    //   // copied off of stack overflow i don't know what kind of magic they used
+    //   const index = users.indexOf(Meteor.user().username);
+    //   if (index > -1) {
+    //     users.splice(index, 1);
+    //   }
+    //   return users.pop();
+    // }));
+
+    const chatList = _.map(_.pluck(this.props.chatNavBar, 'users'), (users) => {
+      // copied off of stack overflow i don't know what kind of magic they used
+      const index = users.indexOf(Meteor.user().username);
+      if (index > -1) {
+        users.splice(index, 1);
+      }
+      return users.pop();
+    });
     return (
         <Dropdown text='Chat' pointing="top right" icon={'envelope'}>
           <Dropdown.Menu>
-            {}
+            {chatList.map((name, index) => <Dropdown.Item
+                key={index}
+                text={name} as={NavLink} exact to={`/message/${name}`}/>)}
             <Dropdown.Item text="admin@foo.com" as={NavLink} exact to="/message/admin@foo.com"/>
           </Dropdown.Menu>
         </Dropdown>

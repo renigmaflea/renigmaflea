@@ -83,7 +83,7 @@ class PrivateMessage extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
-    console.log(this.props.chat);
+    // console.log(this.props.chat);
     let fRef = null;
     const SndPartyUsername = this.props.doc;
     const SndPartyImage = 'images/users/user3.jpg';
