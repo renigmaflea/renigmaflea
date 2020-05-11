@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header, Feed, Icon, Visibility, Button, Image } from 'semantic-ui-react';
+import { Grid, Segment, Header, Feed, Icon, Visibility, Button, Image, Loader } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
@@ -58,11 +58,12 @@ class PrivateMessage extends React.Component {
           }
         });
 
-    // console.log(this.props.chat.length);
-    if (this.props.chat.length === 0) {
+    /* for when the chat is newly created */
+    if (this.props.chat.length === 0 || this.props.chatNavBar.length === 0) {
       const users = [sender, receiver];
-      // insert into two collections, but they should have the same content
-      Chat.insert({ users },
+      const lastMessageDate = createdAt;
+      /* insert unique chat object into two collections, but they should have the same content */
+      const actualChatId = Chat.insert({ users },
           (error) => {
             if (error) {
               swal('Chat error', error.message, 'error');
@@ -70,10 +71,28 @@ class PrivateMessage extends React.Component {
               // swal('Success', 'Item reported successfully', 'success');
             }
           });
-      ChatNavBar.insert({ users },
+      ChatNavBar.insert({ users, lastMessageDate, actualChatId },
           (error) => {
             if (error) {
               swal('ChatNavBar error', error.message, 'error');
+            } else {
+              // swal('Success', 'Item reported successfully', 'success');
+            }
+          });
+      /* if the unique chat id already existed, update navbar display for the latest one  */
+    } else if (this.props.chat.length > 0) {
+      // this assumes that there's only one chat doc returned from pub
+      // again, this is mighty stupid
+      // but im treating this like a hackathon; too bad!
+      const currentChatId = _.pluck(this.props.chat, '_id');
+      // console.log(currentChatId[0]); update can't use array ¯\_(ツ)_/¯
+      /* using the currentChatId, this finds the equipvalent navbar chat's id */
+      const chatNavBarid = ChatNavBar.find({ actualChatId: currentChatId[0] }).fetch()[0]._id;
+      // console.log(id);
+      ChatNavBar.update({ _id: chatNavBarid }, { $set: { lastMessageDate: createdAt } },
+          (error) => {
+            if (error) {
+              swal('Chat message update error', error.message, 'error');
             } else {
               // swal('Success', 'Item reported successfully', 'success');
             }
@@ -83,10 +102,9 @@ class PrivateMessage extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
-    // console.log(this.props.chat);
     let fRef = null;
     const SndPartyUsername = this.props.doc;
-    const SndPartyImage = 'images/users/user3.jpg';
+    const SndPartyImage = 'images/users/defaultOtherUser.png';
     const userImage = 'images/users/defaultUser.png';
     return (
         <div style={backgroundStyle}>
@@ -107,20 +125,24 @@ class PrivateMessage extends React.Component {
 
               <Segment style={MessageBoxStyle}>
                 <Grid>
-                  {this.props.messages.map(
-                      function (message) {
-                        let leftSide = false;
-                        let image = userImage;
-                        if (SndPartyUsername === message.sender) {
-                          leftSide = true;
-                          image = SndPartyImage;
-                        }
+                  {(this.props.messageReady) ?
+                      this.props.messages.map(
+                          function (message) {
+                            let leftSide = false;
+                            let image = userImage;
+                            if (SndPartyUsername === message.sender) {
+                              leftSide = true;
+                              image = SndPartyImage;
+                            }
 
-                        return (
-                            <AMessage key={message._id} buyerSide={leftSide} message={message} image={image}/>
-                        );
-                      }
-                  )}
+                            return (
+                                <AMessage key={message._id} buyerSide={leftSide} message={message} image={image}/>
+                            );
+                          }
+                      )
+                      :
+                      <Loader active>Getting messages</Loader>
+                  }
                 </Grid>
               </Segment>
 
@@ -149,6 +171,7 @@ PrivateMessage.propTypes = {
   messages: PropTypes.array.isRequired,
   chat: PropTypes.array.isRequired,
   chatNavBar: PropTypes.array.isRequired,
+  messageReady: PropTypes.bool.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -163,6 +186,7 @@ export default withTracker(({ match }) => {
     messages: Messages.find().fetch(),
     chat: Chat.find().fetch(),
     chatNavBar: ChatNavBar.find().fetch(),
+    messageReady: subscription.ready(),
     ready: subscription.ready() && subscription2.ready() && subscription3.ready(),
   };
 })(PrivateMessage);

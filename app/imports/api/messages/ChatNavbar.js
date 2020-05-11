@@ -15,6 +15,8 @@ const ChatNavBarSchema = new SimpleSchema({
   'users.$': {
     type: String,
   },
+  lastMessageDate: Number,
+  actualChatId: String, // Contains the id of the main Chat collection. This is stupid; too bad!
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
