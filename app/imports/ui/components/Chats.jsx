@@ -29,6 +29,7 @@ class Chats extends React.Component {
             :
             <Dropdown text={`Chat(${this.props.chatNavBar.length})`} pointing="top right" icon={'envelope'}>
               <Dropdown.Menu>
+                <Header textAlign='center' color='green'>Recent Messages</Header>
                 {chatList.map((name, index) => <Dropdown.Item
                     key={index}
                     text={name} as={NavLink} exact to={`/message/${name}`}/>)}

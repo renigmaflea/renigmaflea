@@ -100,7 +100,7 @@ Meteor.publish('ChatInMessage', function publish(otherUser) {
 Meteor.publish('ChatInNavBar', function publish() {
   if (this.userId) {
     const options = {
-      sort: { createdAt: -1 },
+      sort: { lastMessageDate: -1 },
     };
 
     const username = Meteor.users.findOne(this.userId).username;
