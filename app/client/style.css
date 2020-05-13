@@ -11,3 +11,9 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+@font-face {
+  font-family: roboto_thin;
+  src: url("public/fonts/Roboto-Thin.ttf");
+}
+
