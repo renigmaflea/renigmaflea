@@ -66,34 +66,6 @@ class Item extends React.Component {
 
     return (
 
-        // <Card centered ui divided items>
-        //       <Card.Content>
-        //         <Image
-        //             floated='left'
-        //             size='medium'
-        //             src={this.props.contact.image}
-        //         />
-        //         <Card.Header>{this.props.contact.firstName} {this.props.contact.lastName}</Card.Header>
-        //         <Card.Meta>{this.props.contact.address}</Card.Meta>
-        //         <Card.Description>
-        //           {this.props.contact.description} <strong></strong>
-        //         </Card.Description>
-        //       </Card.Content>
-        //
-        //       <Card.Content extra>
-        //         <Link to={`/edit/${this.props.contact._id}`}>Edit</Link>
-        //       </Card.Content>
-        //       <Card.Content extra>
-        //         <Feed>
-        //           {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
-        //         </Feed>
-        //       </Card.Content>
-        //       <Card.Content extra>
-        //         <AddNote owner={this.props.contact.owner} contactId={this.props.contact._id}/>
-        //       </Card.Content>
-        //     </Card>
-
-
         <div style={divStyle} className="ui divided one column grid items">
           <div className="row section divider">
             <div className="image">
@@ -154,3 +126,30 @@ Item.propTypes = {
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
 export default withRouter(Item);
+
+// <Card centered ui divided items>
+//       <Card.Content>
+//         <Image
+//             floated='left'
+//             size='medium'
+//             src={this.props.contact.image}
+//         />
+//         <Card.Header>{this.props.contact.firstName} {this.props.contact.lastName}</Card.Header>
+//         <Card.Meta>{this.props.contact.address}</Card.Meta>
+//         <Card.Description>
+//           {this.props.contact.description} <strong></strong>
+//         </Card.Description>
+//       </Card.Content>
+//
+//       <Card.Content extra>
+//         <Link to={`/edit/${this.props.contact._id}`}>Edit</Link>
+//       </Card.Content>
+//       <Card.Content extra>
+//         <Feed>
+//           {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
+//         </Feed>
+//       </Card.Content>
+//       <Card.Content extra>
+//         <AddNote owner={this.props.contact.owner} contactId={this.props.contact._id}/>
+//       </Card.Content>
+//     </Card>
