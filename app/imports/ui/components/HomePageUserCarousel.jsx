@@ -8,14 +8,13 @@ class HomePageUserCarousel extends React.Component {
     return (
         <CarouselProvider
             naturalSlideWidth={235}
-            naturalSlideHeight={120}
+            naturalSlideHeight={125}
             totalSlides={2}
             isPlaying
-            interval={7000}
         >
           <Slider>
             <Slide index={0}>
-              <Card.Group>
+              <Card.Group centered>
                 <Card>
                   <Card.Content>
                     <Image
@@ -69,7 +68,7 @@ class HomePageUserCarousel extends React.Component {
               </Card.Group>
             </Slide>
             <Slide index={1}>
-              <Card.Group>
+              <Card.Group centered>
                 <Card>
                   <Card.Content>
                     <Image
