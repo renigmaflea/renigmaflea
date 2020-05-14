@@ -101,13 +101,14 @@ class Item extends React.Component {
                 <span style={addressStyle} className="cinema">{this.props.item.address}</span>
               </div>
               <div className="description">
-                <p style={descStyle} >{this.props.item.description} <strong></strong></p>
+                <p style={descStyle}>{this.props.item.description} <strong></strong></p>
 
-                <Button size = 'mini' color='gray'><Icon name='edit'/>
+                <Button size='mini' color='gray'><Icon name='edit'/>
                   <Link to={`/edit/${this.props.item._id}`}>Edit</Link>
                 </Button>
-                <Button size = 'mini' onClick={() => this.removeItem(this.props.item._id)}>Delete</Button>
+                <Button size='mini' onClick={() => this.removeItem(this.props.item._id)}>Delete</Button>
 
+<<<<<<< HEAD
                 {/*<Link to={`/profile/${this.props.item._id}`}>*/}
                 {/*  <Button size = 'mini' color='yellow' className="extra ui left floated primary button"><Icon*/}
                 {/*      name='star'/>Buy Items</Button></Link>*/}
@@ -138,6 +139,16 @@ class Item extends React.Component {
                 {/*<Button size = 'mini' color='blue'><Icon*/}
                 {/*    name='share square'/>Share</Button>*/}
 
+=======
+                <Link to={`/profile/${this.props.item._id}`}>
+                  <Button size='mini' color='yellow' className="extra ui left floated primary button"><Icon
+                      name='star'/>Buy Items</Button></Link>
+                <Link to={`/profile/${this.props.item._id}`}><Button size='mini' color='yellow'><Icon
+                    name='star'/>Favorite</Button></Link>
+                <Link to={`/profile/${this.props.item._id}`}><Button size='mini' color='blue'><Icon
+                    name='share square'/>Share</Button></Link>
+                {this.test(this.props.item.category)}
+>>>>>>> issue-68
 
                 {/*{this.props.notes.map((note, index) => <Note key={index} note={note}/>)}*/}
                 <div owner={this.props.item.owner} itemID={this.props.item._id}/>
@@ -155,6 +166,25 @@ class Item extends React.Component {
           </div>
         </div>
     );
+  }
+
+  test(category) {
+    switch (category) {
+      case 'Technology':
+        return <Link to={`/listtc/${this.props.item._id}`}><Button size='mini' color='purple'><Icon
+            name='computer'/>Technology</Button></Link>;
+      case 'Transportation':
+        return <Link to={`/listts/${this.props.item._id}`}><Button size='mini' color='purple'><Icon
+            name='car'/>Transportation</Button></Link>;
+      case 'Household Appliances':
+        return <Link to={`/listhha/${this.props.item._id}`}><Button size='mini' color='purple'><Icon
+            name='home'/>Household</Button></Link>;
+      case 'Miscellaneous':
+        return <Link to={`/listmisc/${this.props.item._id}`}><Button size='mini' color='purple'><Icon
+            name='paperclip'/>Miscellaneous</Button></Link>;
+      default:
+        return null;
+    }
   }
 }
 
