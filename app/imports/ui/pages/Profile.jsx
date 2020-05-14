@@ -1,10 +1,11 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Card, Header, Loader, Image, Icon } from 'semantic-ui-react';
+import { Container, Card, Header, Loader, Image, Icon, Grid, Button, Menu, Dropdown } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Items } from '../../api/item/Items';
 import Item from '../components/Item';
+import { Link } from 'react-router-dom';
 
 /** Renders a table containing all of the Item documents. Use <StuffItem> to render each row. */
 class ListProfile extends React.Component {
@@ -23,32 +24,95 @@ class ListProfile extends React.Component {
     };
 
     const backgroundStyle = {
+      margin: '0',
+      padding: '0',
       backgroundImage: `url(${'/images/pattern.jpg'})`,
       backgroundSize: 'fit',
     };
+
+    const gridStyle = {
+      paddingTop:'15px',
+      height: '50%',
+    };
+
+    const container = {
+      display: 'inline-block',
+      position: 'relative',
+    }
+
+    const menu = {
+      display: 'inline-block',
+      position: 'relative',
+      height: '5%',
+      width: '170%',
+      marginLeft: '-45%',
+      paddingLeft: '10px',
+    }
+
+    const item = {
+      marginTop: '10px',
+      marginLeft:'-45%',
+      height: '100%',
+      width: '170%',
+    }
+
+    const yourItems = {
+      marginTop: '5px',
+      marginBottom: '5px',
+      fontSize: '20px',
+      fontWeight: 'bold',
+      textAlign: 'center',
+
+    }
+
     return (
         <div style={backgroundStyle}>
-        <Container>
-          <Header as="h2" textAlign="center" style={titleStyle}>My Profile</Header>
-          <Card>
-            <Image src='/images/frog.png' wrapped ui={false} />
-            <Card.Content>
-              <Card.Header>Matthew</Card.Header>
-              <Card.Meta>
-                <span className='date'>Joined in 2015</span>
-              </Card.Meta>
-              <Card.Description>
-                Matthew is a musician living in Nashville.
-              </Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              <a>
-                <Icon name='cart' />
-                0 Items for sale
-              </a>
-            </Card.Content>
-          </Card>
-        </Container>
+          <Container style={container} className = "clear">
+            <Grid container style={gridStyle} className = "clear">
+              <Grid.Row columns="two">
+                <Grid.Column>
+                  <Card>
+                    <Image src='/images/users/justinuser.jpg' wrapped ui={false}/>
+                    <Card.Content>
+                      <Card.Header>Justin</Card.Header>
+                      <Card.Meta>
+                        <span className='date'>Joined in 2015</span>
+                      </Card.Meta>
+                      <Card.Description>
+                        Justin is a musician living in Nashville.
+                      </Card.Description>
+                      <Button size = 'mini' color='gray'><Icon name='edit'/>
+                        {/*<Link to={`/edit/${this.props.profile._id}`}>Edit</Link>*/}
+                        Edit
+                      </Button>
+                    </Card.Content>
+                    <Card.Content extra>
+                      <a>
+                        <Icon name='cart' />
+                        0 Items for sale
+                      </a>
+                    </Card.Content>
+                  </Card>
+                </Grid.Column>
+
+                <Grid.Column>
+                  <Menu style={menu} centered className = "clear">
+                    <p style={yourItems}>
+                      Your Items
+                    </p>
+                  </Menu>
+                  <Container>
+                    <Card.Group style={item}>
+                      {this.props.items.map((item, index) => <Item
+                          key={index}
+                          Items={Items}
+                          item={item}/>)}
+                    </Card.Group>
+                  </Container>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </Container>
         </div>
     );
   }

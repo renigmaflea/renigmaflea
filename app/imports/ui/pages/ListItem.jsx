@@ -20,7 +20,7 @@ class ListItem extends React.Component {
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center">Hello World</Header>
+          <Header as="h2" textAlign="center"></Header>
           <Card.Group>
             {this.props.items.map((item, index) => <Item
                 key={index}
@@ -31,7 +31,6 @@ class ListItem extends React.Component {
     );
   }
 }
-
 /** Require an array of Stuff documents in the props. */
 ListItem.propTypes = {
   items: PropTypes.array.isRequired,
