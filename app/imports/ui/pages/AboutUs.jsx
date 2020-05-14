@@ -26,11 +26,17 @@ class AboutUs extends React.Component {
     const backgroundStyle = {
       backgroundImage: `url(${'/images/pattern.jpg'})`,
       backgroundSize: 'fit',
+      backgroundAttachment: 'fixed',
     };
 
     const textStyle = {
       fontSize: 'large',
     };
+
+    const alohaStyle = {
+      marginTop: '20px',
+    };
+
     return (
         <div style={backgroundStyle}>
           <Image src='/images/manoapano.jpg' fluid/>
@@ -94,9 +100,7 @@ class AboutUs extends React.Component {
                 </p>
               </GridColumn>
             </Grid>
-            <div>
-            <Image src='/images/aloha.jpg' fluid/>
-            </div>
+            <Image style={alohaStyle} src='/images/aloha.jpg'></Image>
             <Header as="h2" textAlign="center" style={titleStyle}>User Policy</Header>
             <Header as="h3" textAlign="center" style={titleStyle}>Posting</Header>
             <p style={textStyle}>Rainbow Retail strive to create friendly trading platform for everyone. Users cannot
