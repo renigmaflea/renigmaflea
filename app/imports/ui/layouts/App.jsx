@@ -28,6 +28,8 @@ import ListTC from '../pages/ListTC';
 import ListTS from '../pages/ListTS';
 import ListMISC from '../pages/ListMISC';
 import PrivateMessage from '../pages/PrivateMessage';
+import Lucky from '../pages/Lucky';
+
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -50,6 +52,7 @@ class App extends React.Component {
               <ProtectedRoute path="/listts" component={ListTS}/>
               <ProtectedRoute path="/listmisc" component={ListMISC}/>
               <ProtectedRoute path="/add" component={AddItem}/>
+              <ProtectedRoute path="/lucky" component={Lucky}/>
               <ProtectedRoute path="/edit/:_id" component={EditItem}/>
               <ProtectedRoute path="/reportguide" component={ReportGuide}/>
               <ProtectedRoute path="/report/:_id" component={ReportItem}/>
