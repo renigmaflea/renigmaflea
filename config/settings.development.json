@@ -18,6 +18,7 @@
 
     {
       "firstName": "Bill", "lastName": "Blackbeard",  "itemName": "Aloha Shirts", "address": "Gateway",
+      "price": "$15",
       "description": "Used, but nice aloha shirts.",
       "category": "Miscellaneous",
       "image": "/images/items/alohashirts.JPG",
@@ -25,6 +26,7 @@
     },
     {
       "firstName": "Long John", "lastName": "Ginger",  "itemName": "Luggage", "address": "Castleton Brook",
+      "price": "$50",
       "description": "Easy to bring onto a plane",
       "category": "Transportation",
       "image": "/images/items/ambassadorluggage.JPG",
@@ -33,6 +35,7 @@
 
     {
       "firstName": "John", "lastName": "Greyhate",  "itemName": "Backpack", "address": "East West Dorm",
+      "price": "$25",
       "description": "Brand new backpack for sale",
       "category": "Miscellaneous",
       "image": "/images/items/backpack.jpg",
@@ -41,6 +44,7 @@
 
     {
       "firstName": "Harley", "lastName": "Withers",  "itemName": "Bluetooth Set", "address": "Shidler's Building",
+      "price": "$25",
       "description": "Brand new bluetooth set in a box!",
       "category": "Technology",
       "image": "/images/items/bluetoothbuds.jpg",
@@ -49,6 +53,7 @@
 
     {
       "firstName": "Jim", "lastName": "Reynolds",  "itemName": "Bluetooth Keyboard", "address": "Abbey Road",
+      "price": "$30",
       "description": "Used Bluetooth Keyboard for sale.",
       "category": "Technology",
       "image": "/images/items/bluetoothkeyboard.JPG",
@@ -57,6 +62,7 @@
 
     {
       "firstName": "Steve", "lastName": "Smith",  "itemName": "Dell Monitor", "address": "World of Warcraft Dungeon",
+      "price": "$80",
       "description": "Nice Dell Monitor for sale.",
       "category": "Technology",
       "image": "/images/items/dellmonitor.JPG",
@@ -65,6 +71,7 @@
 
     {
       "firstName": "Rachel", "lastName": "Bernard",  "itemName": "Guitar", "address": "POST Building",
+      "price": "$150",
       "description": "Used Squire for sale",
       "category": "Technology",
       "image": "/images/items/electricguitar.JPG",
@@ -73,6 +80,7 @@
 
     {
       "firstName": "Balder", "lastName": "Aafje",  "itemName": "Bike", "address": "Frear",
+      "price": "$75",
       "description": "Used bike for sale",
       "category": "Transportation",
       "image": "/images/Daniel Sale Items/Daniel_Bike2.jpeg",
@@ -81,6 +89,7 @@
 
     {
       "firstName": "Mark", "lastName": "Smith",  "itemName": "Galaxy Buds", "address": "Lokelani Freshman Tower",
+      "price": "$60",
       "description": "Used Galaxy Buds for Sale",
       "category": "Technology",
       "image": "/images/items/galaxybuds.jpg",
@@ -89,6 +98,7 @@
 
     {
       "firstName": "Bill", "lastName": "John",  "itemName": "Hand Sanitizer", "address": "Mokihana",
+      "price": "$5",
       "description": "Hand Sanitzer for sale.",
       "category": "Miscellaneous",
       "image": "/images/items/handsanitizer.jpg",
@@ -96,6 +106,7 @@
     },
     {
       "firstName": "Long John", "lastName": "Ginger",  "itemName": "iPad", "address": "Apartments",
+      "price": "$100",
       "description": "Nice iPad to play games on",
       "category": "Technology",
       "image": "/images/items/iPad.jpg",
@@ -104,6 +115,7 @@
 
     {
       "firstName": "John", "lastName": "London",  "itemName": "Mini Fan", "address": "Mokihana Tower",
+      "price": "$20",
       "description": "Good Mini Fan for sale.",
       "category": "Household Appliances",
       "image": "/images/items/minifan.JPG",
@@ -112,6 +124,7 @@
 
     {
       "firstName": "Harley", "lastName": "Richards",  "itemName": "Mini Fridge", "address": "Holmes Hall",
+      "price": "$60",
       "description": "Mini Fridge in Good Condition",
       "category": "Household Appliances",
       "image": "/images/items/minifridge.JPG",
@@ -120,6 +133,7 @@
 
     {
       "firstName": "Nandita", "lastName": "Gervaise",  "itemName": "Skateboard", "address": "Gateway",
+      "price": "$50",
       "description": "2nd hand skateboard. Minimal wear and tear",
       "category": "Transportation",
       "image": "/images/Daniel Sale Items/Daniel_Skateboard.jpeg",
@@ -128,6 +142,7 @@
 
     {
       "firstName": "Jim", "lastName": "Kim",  "itemName": "Rice Cooker", "address": "Rice Street",
+      "price": "$35",
       "description": "Rice Cooker for sale.",
       "category": "Household Appliances",
       "image": "/images/items/ricecooker.JPG",

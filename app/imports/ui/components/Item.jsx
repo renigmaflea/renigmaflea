@@ -31,23 +31,38 @@ class Item extends React.Component {
       borderRadius: '25px'
     }
 
-    const nameStyle = {
+    const itemStyle = {
       fontSize: '30px',
       fontWeight: 'bold',
+      color: 'white',
+      paddingBottom: '10px',
+    }
+
+    const priceStyle = {
+      fontSize: '30px',
+      paddingLeft: '10px',
+      fontWeight: 'bold',
+      color: 'black',
+      paddingBottom: '10px',
+    }
+
+    const nameStyle = {
+      fontSize: '15px',
+      //fontWeight: 'bold',
       color: 'white', //can change back to be blue when clicked turn to purple
-      paddingBottom: '15px'
+      paddingBottom: '10px',
     }
 
     const addressStyle = {
       fontSize: '10px',
       color: 'white',
-      paddingBottom: '15px'
+      paddingBottom: '10px'
     }
 
     const descStyle = {
       fontSize: '15px',
       color: 'white',
-      paddingBottom: '15px'
+      paddingBottom: '10px'
     }
 
     const editStyle = {
@@ -77,23 +92,22 @@ class Item extends React.Component {
               />
             </div>
             <div className="content">
-              <a style={nameStyle} className="header">{this.props.item.firstName} {this.props.item.lastName}</a>
+              <a style={itemStyle} className="header">{this.props.item.itemName}</a>
+              <a style={priceStyle} className="header">{this.props.item.price}</a>
+              <div className="meta">
+                <a style={nameStyle} className="header">{this.props.item.firstName} {this.props.item.lastName}</a>
+              </div>
               <div className="meta">
                 <span style={addressStyle} className="cinema">{this.props.item.address}</span>
               </div>
               <div className="description">
-                <p style={descStyle} >{this.props.item.description} <strong></strong></p>
+                <p style={descStyle}>{this.props.item.description} <strong></strong></p>
 
-                <Button size = 'mini' color='gray'><Icon name='edit'/>
+                <Button size='mini' color='gray'><Icon name='edit'/>
                   <Link to={`/edit/${this.props.item._id}`}>Edit</Link>
                 </Button>
-                <Button size = 'mini' onClick={() => this.removeItem(this.props.item._id)}>Delete</Button>
+                <Button size='mini' onClick={() => this.removeItem(this.props.item._id)}>Delete</Button>
 
-                {/*<Link to={`/profile/${this.props.item._id}`}>*/}
-                {/*  <Button size = 'mini' color='yellow' className="extra ui left floated primary button"><Icon*/}
-                {/*      name='star'/>Buy Items</Button></Link>*/}
-                {/*<Link to={`/profile/${this.props.item._id}`}><Button size = 'mini' color='yellow'><Icon*/}
-                {/*    name='star'/>Favorite</Button></Link>*/}
 
                 <Popup trigger={<Button size = 'mini' color='blue'>Share</Button>} flowing hoverable>
                   <Grid centered divided columns={3}>
@@ -116,9 +130,12 @@ class Item extends React.Component {
                   </Grid>
                 </Popup>
 
-                {/*<Button size = 'mini' color='blue'><Icon*/}
-                {/*    name='share square'/>Share</Button>*/}
-
+                <Link to={`/profile/${this.props.item._id}`}>
+                  <Button size='mini' color='yellow' className="extra ui left floated primary button"><Icon
+                      name='star'/>Buy Items</Button></Link>
+                <Link to={`/profile/${this.props.item._id}`}><Button size='mini' color='yellow'><Icon
+                    name='star'/>Favorite</Button></Link>
+                {this.test(this.props.item.category)}
 
                 {/*{this.props.notes.map((note, index) => <Note key={index} note={note}/>)}*/}
                 <div owner={this.props.item.owner} itemID={this.props.item._id}/>
@@ -136,6 +153,25 @@ class Item extends React.Component {
           </div>
         </div>
     );
+  }
+
+  test(category) {
+    switch (category) {
+      case 'Technology':
+        return <Link to={`/listtc/${this.props.item._id}`}><Button size='mini' color='purple'><Icon
+            name='computer'/>Technology</Button></Link>;
+      case 'Transportation':
+        return <Link to={`/listts/${this.props.item._id}`}><Button size='mini' color='purple'><Icon
+            name='car'/>Transportation</Button></Link>;
+      case 'Household Appliances':
+        return <Link to={`/listhha/${this.props.item._id}`}><Button size='mini' color='purple'><Icon
+            name='home'/>Household</Button></Link>;
+      case 'Miscellaneous':
+        return <Link to={`/listmisc/${this.props.item._id}`}><Button size='mini' color='purple'><Icon
+            name='paperclip'/>Miscellaneous</Button></Link>;
+      default:
+        return null;
+    }
   }
 }
 

@@ -10,13 +10,13 @@ import Chats from './Chats';
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
 class NavBar extends React.Component {
   render() {
-    const menuStyle = { backgroundColor: '#024731', fontSize: '18px' };
+    const menuStyle = { backgroundColor: '#024731', fontSize: '18px', fontFamily: 'Montserrat'};
     const itemStyle = { margin: '0px', padding: '0px' };
     return (
       <Menu style={menuStyle} attached="top" borderless inverted>
         <Menu.Item as={NavLink} activeClassName="" exact to="/" style={itemStyle}>
           {/* <Header style={itemStyle} className="logo" inverted as='h1'>RenigmaFlea</Header> */}
-          <Image src='/images/menu_logo.png' size='small'/>
+          <Image src='/images/rrlogo.png' size='small'/>
         </Menu.Item>
         {this.props.currentUser ? (
             [<Menu.Item as={NavLink} activeClassName="active" exact to="/" key='add'>Home</Menu.Item>,

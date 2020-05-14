@@ -46,7 +46,7 @@ class ListProfile extends React.Component {
     const menu = {
       display: 'inline-block',
       position: 'relative',
-      height: '5%',
+      height: '50px',
       width: '170%',
       marginLeft: '-45%',
       paddingLeft: '10px',
@@ -84,10 +84,10 @@ class ListProfile extends React.Component {
                       <Card.Description>
                         Hi I'm John Foo, I mainly sell phones and textbooks.
                       </Card.Description>
-                      <Button size = 'mini' color='gray'><Icon name='edit'/>
-                        {/*<Link to={`/edit/${this.props.profile._id}`}>Edit</Link>*/}
-                        Edit
-                      </Button>
+                      {/*<Button size = 'mini' color='gray'><Icon name='edit'/>*/}
+                      {/*  /!*<Link to={`/edit/${this.props.profile._id}`}>Edit</Link>*!/*/}
+                      {/*  Edit*/}
+                      {/*</Button>*/}
                     </Card.Content>
                     {/*<Card.Content extra>*/}
                     {/*  <a>*/}
