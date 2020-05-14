@@ -31,23 +31,38 @@ class Item extends React.Component {
       borderRadius: '25px'
     }
 
-    const nameStyle = {
+    const itemStyle = {
       fontSize: '30px',
       fontWeight: 'bold',
+      color: 'white',
+      paddingBottom: '10px',
+    }
+
+    const priceStyle = {
+      fontSize: '30px',
+      paddingLeft: '10px',
+      fontWeight: 'bold',
+      color: 'black',
+      paddingBottom: '10px',
+    }
+
+    const nameStyle = {
+      fontSize: '15px',
+      //fontWeight: 'bold',
       color: 'white', //can change back to be blue when clicked turn to purple
-      paddingBottom: '15px'
+      paddingBottom: '10px',
     }
 
     const addressStyle = {
       fontSize: '10px',
       color: 'white',
-      paddingBottom: '15px'
+      paddingBottom: '10px'
     }
 
     const descStyle = {
       fontSize: '15px',
       color: 'white',
-      paddingBottom: '15px'
+      paddingBottom: '10px'
     }
 
     const editStyle = {
@@ -77,7 +92,11 @@ class Item extends React.Component {
               />
             </div>
             <div className="content">
-              <a style={nameStyle} className="header">{this.props.item.firstName} {this.props.item.lastName}</a>
+              <a style={itemStyle} className="header">{this.props.item.itemName}</a>
+              <a style={priceStyle} className="header">{this.props.item.price}</a>
+              <div className="meta">
+                <a style={nameStyle} className="header">{this.props.item.firstName} {this.props.item.lastName}</a>
+              </div>
               <div className="meta">
                 <span style={addressStyle} className="cinema">{this.props.item.address}</span>
               </div>

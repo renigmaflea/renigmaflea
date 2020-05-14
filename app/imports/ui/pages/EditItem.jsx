@@ -21,8 +21,8 @@ class EditItem extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { firstName, lastName, address, image, description, category, _id } = data;
-    Items.update(_id, { $set: { firstName, lastName, address, image, description, category } }, (error) => (error ?
+    const { firstName, lastName, itemName, price, address, description, category, image, _id } = data;
+    Items.update(_id, { $set: { firstName, lastName, itemName, price, address, description, category, image } }, (error) => (error ?
         swal('Error', error.message, 'error') :
         swal('Success', 'Item updated successfully', 'success')));
   }
@@ -42,10 +42,12 @@ class EditItem extends React.Component {
               <Segment>
                 <TextField name='firstName'/>
                 <TextField name='lastName'/>
+                <TextField name='itemName'/>
+                <TextField name='price'/>
                 <TextField name='address'/>
-                <TextField name='image'/>
                 <LongTextField name='description'/>
                 <SelectField name='category'/>
+                <TextField name='image'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' />

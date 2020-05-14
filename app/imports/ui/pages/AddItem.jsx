@@ -11,14 +11,16 @@ import { Items } from '../../api/item/Items';
 const formSchema = new SimpleSchema({
   firstName: String,
   lastName: String,
+  itemName: String,
+  price: String,
   address: String,
-  image: String,
   description: String,
   category: {
     type: String,
     allowedValues: ['Transportation', 'Household Appliances', 'Technology', 'Miscellaneous'],
     defaultValue: 'Transportation',
   },
+  image: String,
 });
 
 /** Renders the Page for adding a document. */
@@ -26,9 +28,9 @@ class AddItem extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { firstName, lastName, address, image, description, category } = data;
+    const { firstName, lastName, itemName, price, address, description, category, image } = data;
     const owner = Meteor.user().username;
-    Items.insert({ firstName, lastName, address, image, description, category, owner },
+    Items.insert({ firstName, lastName, itemName, price, address, description, category, image, owner },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
@@ -64,10 +66,12 @@ class AddItem extends React.Component {
                 <Segment>
                   <TextField name='firstName'/>
                   <TextField name='lastName'/>
+                  <TextField name='itemName'/>
+                  <TextField name='price'/>
                   <TextField name='address'/>
-                  <TextField name='image'/>
                   <LongTextField name='description'/>
                   <SelectField name='category'/>
+                  <TextField name='image'/>
                   <SubmitField value='Submit'/>
                   <ErrorsField/>
                 </Segment>
