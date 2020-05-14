@@ -9,6 +9,8 @@ const Items = new Mongo.Collection('Items');
 const ItemsSchema = new SimpleSchema({
   firstName: String,
   lastName: String,
+  itemName: String,
+  price: String,
   address: String,
   image: String,
   description: String,
