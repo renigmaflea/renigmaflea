@@ -17,6 +17,9 @@ class ListProfile extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    //The profile page is still in some development with its editing function.
+
+
     const titleStyle = {
       color: '#0e9e71',
       textDecoration: 'underline',
@@ -72,26 +75,26 @@ class ListProfile extends React.Component {
               <Grid.Row columns="two">
                 <Grid.Column>
                   <Card>
-                    <Image src='/images/users/justinuser.jpg' wrapped ui={false}/>
+                    <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false}/>
                     <Card.Content>
-                      <Card.Header>Justin</Card.Header>
+                      <Card.Header>John Foo</Card.Header>
                       <Card.Meta>
-                        <span className='date'>Joined in 2015</span>
+                        <span className='date'>Joined in 2020</span>
                       </Card.Meta>
                       <Card.Description>
-                        Justin is a musician living in Nashville.
+                        Hi I'm John Foo, I mainly sell phones and textbooks.
                       </Card.Description>
                       <Button size = 'mini' color='gray'><Icon name='edit'/>
                         {/*<Link to={`/edit/${this.props.profile._id}`}>Edit</Link>*/}
                         Edit
                       </Button>
                     </Card.Content>
-                    <Card.Content extra>
-                      <a>
-                        <Icon name='cart' />
-                        0 Items for sale
-                      </a>
-                    </Card.Content>
+                    {/*<Card.Content extra>*/}
+                    {/*  <a>*/}
+                    {/*    <Icon name='cart' />*/}
+                    {/*    2 Items for sale*/}
+                    {/*  </a>*/}
+                    {/*</Card.Content>*/}
                   </Card>
                 </Grid.Column>
 

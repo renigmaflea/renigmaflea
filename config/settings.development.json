@@ -35,6 +35,21 @@
     }
   ],
 
+  "defaultProfiles": [
+    {
+      "firstName": "First Name", "lastName": "Last Name", "address": "Your Address",
+      "description": "Add Description",
+      "image": "https://react.semantic-ui.com/images/avatar/large/molly.png",
+      "owner": "john@foo.com"
+    },
+    {
+      "firstName": "Admin", "lastName": "Account", "address": "Admin Address",
+      "description": "You are an admin",
+      "image": "https://react.semantic-ui.com/images/avatar/large/molly.png",
+      "owner": "admin@foo.com"
+    }
+  ],
+
   "defaultCategories": [
     { "name": "Transportation", "url": "/listts", "image": "/images/categoriesPic/bike.jpg" },
     { "name": "Technology", "url": "/listtc", "image": "/images/categoriesPic/mac.jpg" },
