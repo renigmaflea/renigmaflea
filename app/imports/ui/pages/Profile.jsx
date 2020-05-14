@@ -55,6 +55,7 @@ class ListProfile extends React.Component {
     const item = {
       marginTop: '10px',
       marginLeft:'-45%',
+      marginBottom: '10px',
       height: '100%',
       width: '170%',
     }
@@ -98,7 +99,7 @@ class ListProfile extends React.Component {
                   </Card>
                 </Grid.Column>
 
-                <Grid.Column>
+                <Grid.Column floated='right' width={7}>
                   <Menu style={menu} centered className = "clear">
                     <p style={yourItems}>
                       Your Items
