@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, Segment, Header, Feed, Icon, Visibility, Button, Image, Loader } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-semantic';
+import { Grid, Segment, Header, Message, Image, Loader } from 'semantic-ui-react';
+import { AutoForm, ErrorsField, TextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -122,6 +122,10 @@ class PrivateMessage extends React.Component {
                   </Grid.Row>
                 </Grid>
               </Segment>
+
+              <Message>
+                Due to server issues, rapidly sent messages may cause incorrect order of messages to be shown
+              </Message>
 
               <Segment style={MessageBoxStyle}>
                 <Grid>

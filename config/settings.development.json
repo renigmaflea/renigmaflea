@@ -1,7 +1,10 @@
 {
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "john@foo.com", "password": "changeme" },
+    { "email": "jane@foo.com", "password": "changeme" },
+    { "email": "richard@foo.com", "password": "changeme" },
+    { "email": "henry@foo.com", "password": "changeme" }
   ],
 
   "defaultData": [
@@ -12,27 +15,125 @@
   ],
 
   "defaultItems": [
+
     {
-      "firstName": "Philip", "lastName": "Johnson", "itemName": "Macbook", "address": "POST 307, University of Hawaii",
-      "description": "I am a Professor of Information and Computer Sciences at the University of Hawaii, Director of the Collaborative Software Development Laboratory, and the CEO of OpenPowerQuality.com.",
-      "category": "Technology",
-      "image": "https://react.semantic-ui.com/images/avatar/large/molly.png",
+      "firstName": "Bill", "lastName": "Blackbeard",  "itemName": "Aloha Shirts", "address": "Gateway",
+      "description": "Used, but nice aloha shirts.",
+      "category": "Miscellaneous",
+      "image": "/images/items/alohashirts.JPG",
       "owner": "john@foo.com"
     },
     {
-      "firstName": "Henri", "lastName": "Casanova", "itemName": "PC","address": "POST 307, University of Hawaii",
-      "description": "I am originally from France. I maintain a list of reports from my surf sessions. I have proof that I ran the Hana relay with an actual Team.",
-      "category": "Technology",
-      "image": "https://react.semantic-ui.com/images/avatar/large/molly.png",
-      "owner": "john@foo.com"
-    },
-    {
-      "firstName": "Kim", "lastName": "Binsted",  "itemName": "Moped", "address": "POST 307, University of Hawaii",
-      "description": "Kim Binsted received her BSc in Physics at McGill (1991), and her PhD in Artificial Intelligence from the University of Edinburgh (1996). Her thesis topic was the computational modeling and generation of punning riddles, and her program, JAPE (Joke Analysis and Production Engine), generated puns such as 'What do you call a Martian who drinks beer? An ale-ien!'.",
+      "firstName": "Long John", "lastName": "Ginger",  "itemName": "Luggage", "address": "Castleton Brook",
+      "description": "Easy to bring onto a plane",
       "category": "Transportation",
-      "image": "https://react.semantic-ui.com/images/avatar/large/molly.png",
-      "owner": "admin@foo.com"
+      "image": "/images/items/ambassadorluggage.JPG",
+      "owner": "jane@foo.com"
+    },
+
+    {
+      "firstName": "John", "lastName": "Greyhate",  "itemName": "Backpack", "address": "East West Dorm",
+      "description": "Brand new backpack for sale",
+      "category": "Miscellaneous",
+      "image": "/images/items/backpack.jpg",
+      "owner": "john@foo.com"
+    },
+
+    {
+      "firstName": "Harley", "lastName": "Withers",  "itemName": "Bluetooth Set", "address": "Shidler's Building",
+      "description": "Brand new bluetooth set in a box!",
+      "category": "Technology",
+      "image": "/images/items/bluetoothbuds.jpg",
+      "owner": "john@foo.com"
+    },
+
+    {
+      "firstName": "Jim", "lastName": "Reynolds",  "itemName": "Bluetooth Keyboard", "address": "Abbey Road",
+      "description": "Used Bluetooth Keyboard for sale.",
+      "category": "Technology",
+      "image": "/images/items/bluetoothkeyboard.JPG",
+      "owner": "henry@foo.com"
+    },
+
+    {
+      "firstName": "Steve", "lastName": "Smith",  "itemName": "Dell Monitor", "address": "World of Warcraft Dungeon",
+      "description": "Nice Dell Monitor for sale.",
+      "category": "Technology",
+      "image": "/images/items/dellmonitor.JPG",
+      "owner": "john@foo.com"
+    },
+
+    {
+      "firstName": "Rachel", "lastName": "Bernard",  "itemName": "Guitar", "address": "POST Building",
+      "description": "Used Squire for sale",
+      "category": "Technology",
+      "image": "/images/items/electricguitar.JPG",
+      "owner": "richard@foo.com"
+    },
+
+    {
+      "firstName": "Balder", "lastName": "Aafje",  "itemName": "Bike", "address": "Frear",
+      "description": "Used bike for sale",
+      "category": "Transportation",
+      "image": "/images/Daniel Sale Items/Daniel_Bike2.jpeg",
+      "owner": "richard@foo.com"
+    },
+
+    {
+      "firstName": "Mark", "lastName": "Smith",  "itemName": "Galaxy Buds", "address": "Lokelani Freshman Tower",
+      "description": "Used Galaxy Buds for Sale",
+      "category": "Technology",
+      "image": "/images/items/galaxybuds.jpg",
+      "owner": "henry@foo.com"
+    },
+
+    {
+      "firstName": "Bill", "lastName": "John",  "itemName": "Hand Sanitizer", "address": "Mokihana",
+      "description": "Hand Sanitzer for sale.",
+      "category": "Miscellaneous",
+      "image": "/images/items/handsanitizer.jpg",
+      "owner": "henry@foo.com"
+    },
+    {
+      "firstName": "Long John", "lastName": "Ginger",  "itemName": "iPad", "address": "Apartments",
+      "description": "Nice iPad to play games on",
+      "category": "Technology",
+      "image": "/images/items/iPad.jpg",
+      "owner": "richard@foo.com"
+    },
+
+    {
+      "firstName": "John", "lastName": "London",  "itemName": "Mini Fan", "address": "Mokihana Tower",
+      "description": "Good Mini Fan for sale.",
+      "category": "Household Appliances",
+      "image": "/images/items/minifan.JPG",
+      "owner": "john@foo.com"
+    },
+
+    {
+      "firstName": "Harley", "lastName": "Richards",  "itemName": "Mini Fridge", "address": "Holmes Hall",
+      "description": "Mini Fridge in Good Condition",
+      "category": "Household Appliances",
+      "image": "/images/items/minifridge.JPG",
+      "owner": "jane@foo.com"
+    },
+
+    {
+      "firstName": "Nandita", "lastName": "Gervaise",  "itemName": "Skateboard", "address": "Gateway",
+      "description": "2nd hand skateboard. Minimal wear and tear",
+      "category": "Transportation",
+      "image": "/images/Daniel Sale Items/Daniel_Skateboard.jpeg",
+      "owner": "jane@foo.com"
+    },
+
+    {
+      "firstName": "Jim", "lastName": "Kim",  "itemName": "Rice Cooker", "address": "Rice Street",
+      "description": "Rice Cooker for sale.",
+      "category": "Household Appliances",
+      "image": "/images/items/ricecooker.JPG",
+      "owner": "jane@foo.com"
     }
+
   ],
 
   "defaultProfiles": [
