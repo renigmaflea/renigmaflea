@@ -43,6 +43,8 @@ class AddItem extends React.Component {
   render() {
     const titleStyle = {
       color: '#0e9e71',
+      padding: '10px',
+      margin: '10px',
       textDecoration: 'underline',
       fontWeight: 'bold',
     };
@@ -50,6 +52,7 @@ class AddItem extends React.Component {
     const backgroundStyle = {
       backgroundImage: `url(${'/images/pattern.jpg'})`,
       backgroundSize: 'fit',
+      padding: '10px',
     };
     let fRef = null;
     return (

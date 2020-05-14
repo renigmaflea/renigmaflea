@@ -12,6 +12,7 @@ import ListItemsAdmin from '../pages/ListItemsAdmin';
 import ListCategories from '../pages/ListCategories';
 import ReportGuide from '../pages/ReportGuide';
 import AddItem from '../pages/AddItem';
+import AddNewItem from '../pages/AddNewItem';
 import EditItem from '../pages/EditItem';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
