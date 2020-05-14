@@ -18,7 +18,12 @@ class ListItem extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const backgroundStyle = {
+      backgroundImage: `url(${'/images/pattern.jpg'})`,
+      backgroundSize: 'fit',
+    }
     return (
+        <div style={backgroundStyle}>
         <Container>
           <Header as="h2" textAlign="center"></Header>
           <Card.Group>
@@ -28,6 +33,7 @@ class ListItem extends React.Component {
                 item={item}/>)}
           </Card.Group>
         </Container>
+        </div>
     );
   }
 }
