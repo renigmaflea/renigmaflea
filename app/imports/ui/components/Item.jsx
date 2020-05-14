@@ -130,11 +130,11 @@ class Item extends React.Component {
                   </Grid>
                 </Popup>
 
-                <Link to={`/profile/${this.props.item._id}`}>
-                  <Button size='mini' color='yellow' className="extra ui left floated primary button"><Icon
-                      name='star'/>Buy Items</Button></Link>
-                <Link to={`/profile/${this.props.item._id}`}><Button size='mini' color='yellow'><Icon
-                    name='star'/>Favorite</Button></Link>
+                {/*<Link to={`/profile/${this.props.item._id}`}>*/}
+                {/*  <Button size='mini' color='yellow' className="extra ui left floated primary button"><Icon*/}
+                {/*      name='star'/>Buy Items</Button></Link>*/}
+                {/*<Link to={`/profile/${this.props.item._id}`}><Button size='mini' color='yellow'><Icon*/}
+                {/*    name='star'/>Favorite</Button></Link>*/}
                 {this.test(this.props.item.category)}
 
                 {/*{this.props.notes.map((note, index) => <Note key={index} note={note}/>)}*/}
