@@ -28,9 +28,9 @@ class ReportRow extends React.Component {
     // console.log(this.props.reportsCollection);
     return (
         <Table.Row>
-          <Table.Cell>Item name is &quot;{item.address}&quot; (address) for now</Table.Cell>
+          <Table.Cell>{item.category}</Table.Cell>
           <Table.Cell>{item.firstName} {item.lastName}</Table.Cell>
-          <Table.Cell><Link to={'/'}>
+          <Table.Cell><Link to={'/list'}>
             <Button>Link</Button>
           </Link>
           </Table.Cell>
