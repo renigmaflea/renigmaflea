@@ -1,7 +1,10 @@
 {
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "john@foo.com", "password": "changeme" },
+    { "email": "jane@foo.com", "password": "changeme" },
+    { "email": "richard@foo.com", "password": "changeme" },
+    { "email": "henry@foo.com", "password": "changeme" }
   ],
 
   "defaultData": [
@@ -14,35 +17,123 @@
   "defaultItems": [
 
     {
-      "firstName": "Bill", "lastName": "Blackbeard",  "itemName": "Futon", "address": "Selborne Square",
-      "description": "A great looking couch, only been used for a semester!",
-      "category": "Household Appliances",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvGsOoeTAodAQEvZ1MZJnozXxnhkeehX2mE2IU-aa4tXnqDrMb&s",
-      "owner": "john@foo.com"
-    },
-    {
-      "firstName": "Long John", "lastName": "Ginger",  "itemName": "Hook!", "address": "Castleton Brook",
-      "description": "Ahhh. Me arm hook! Barley used",
-      "category": "Technology",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDyQLY1Zu_QsSXSo4mkEgdghzAHtSg4iIudwZdOjwDHSLyFxhI&s",
-      "owner": "john@foo.com"
-    },
-
-    {
-      "firstName": "John", "lastName": "Greyhate",  "itemName": "Ol' Ship!", "address": "Cape Buxton",
-      "description": "Ship crashed not too long ago, still can be fixed!",
-      "category": "Transportation",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzZbL1BgMI8Hl4ooz67TC6ZxIKP_3qEzVvmkW3QFimlmnU-Snv&s",
-      "owner": "john@foo.com"
-    },
-
-    {
-      "firstName": "Harley", "lastName": "Withers",  "itemName": "Ol' Shirt", "address": "Castleton Brook",
-      "description": "A raggady shirt, but barely worne!",
+      "firstName": "Bill", "lastName": "Blackbeard",  "itemName": "Aloha Shirts", "address": "Gateway",
+      "description": "Used, but nice aloha shirts.",
       "category": "Miscellaneous",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWYGgRtHTrAHlRxzMh1giZUyZ2scNqesHFhhv-Be_RFTtEB85GOA&s",
+      "image": "/images/items/alohashirts.JPG",
       "owner": "john@foo.com"
+    },
+    {
+      "firstName": "Long John", "lastName": "Ginger",  "itemName": "Luggage", "address": "Castleton Brook",
+      "description": "Easy to bring onto a plane",
+      "category": "Transportation",
+      "image": "/images/items/ambassadorluggage.JPG",
+      "owner": "jane@foo.com"
+    },
+
+    {
+      "firstName": "John", "lastName": "Greyhate",  "itemName": "Backpack", "address": "East West Dorm",
+      "description": "Brand new backpack for sale",
+      "category": "Miscellaneous",
+      "image": "/images/items/backpack.jpg",
+      "owner": "john@foo.com"
+    },
+
+    {
+      "firstName": "Harley", "lastName": "Withers",  "itemName": "Bluetooth Set", "address": "Shidler's Building",
+      "description": "Brand new bluetooth set in a box!",
+      "category": "Technology",
+      "image": "/images/items/bluetoothbuds.jpg",
+      "owner": "john@foo.com"
+    },
+
+    {
+      "firstName": "Jim", "lastName": "Reynolds",  "itemName": "Bluetooth Keyboard", "address": "Abbey Road",
+      "description": "Used Bluetooth Keyboard for sale.",
+      "category": "Technology",
+      "image": "/images/items/bluetoothkeyboard.JPG",
+      "owner": "henry@foo.com"
+    },
+
+    {
+      "firstName": "Steve", "lastName": "Smith",  "itemName": "Dell Monitor", "address": "World of Warcraft Dungeon",
+      "description": "Nice Dell Monitor for sale.",
+      "category": "Technology",
+      "image": "/images/items/dellmonitor.JPG",
+      "owner": "john@foo.com"
+    },
+
+    {
+      "firstName": "Rachel", "lastName": "Bernard",  "itemName": "Guitar", "address": "POST Building",
+      "description": "Used Squire for sale",
+      "category": "Technology",
+      "image": "/images/items/electricguitar.JPG",
+      "owner": "richard@foo.com"
+    },
+
+    {
+      "firstName": "Balder", "lastName": "Aafje",  "itemName": "Bike", "address": "Frear",
+      "description": "Used bike for sale",
+      "category": "Transportation",
+      "image": "/images/Daniel Sale Items/Daniel_Bike2.jpeg",
+      "owner": "richard@foo.com"
+    },
+
+    {
+      "firstName": "Mark", "lastName": "Smith",  "itemName": "Galaxy Buds", "address": "Lokelani Freshman Tower",
+      "description": "Used Galaxy Buds for Sale",
+      "category": "Technology",
+      "image": "/images/items/galaxybuds.jpg",
+      "owner": "henry@foo.com"
+    },
+
+    {
+      "firstName": "Bill", "lastName": "John",  "itemName": "Hand Sanitizer", "address": "Mokihana",
+      "description": "Hand Sanitzer for sale.",
+      "category": "Miscellaneous",
+      "image": "/images/items/handsanitizer.jpg",
+      "owner": "henry@foo.com"
+    },
+    {
+      "firstName": "Long John", "lastName": "Ginger",  "itemName": "iPad", "address": "Apartments",
+      "description": "Nice iPad to play games on",
+      "category": "Technology",
+      "image": "/images/items/iPad.jpg",
+      "owner": "richard@foo.com"
+    },
+
+    {
+      "firstName": "John", "lastName": "London",  "itemName": "Mini Fan", "address": "Mokihana Tower",
+      "description": "Good Mini Fan for sale.",
+      "category": "Household Appliances",
+      "image": "/images/items/minifan.JPG",
+      "owner": "john@foo.com"
+    },
+
+    {
+      "firstName": "Harley", "lastName": "Richards",  "itemName": "Mini Fridge", "address": "Holmes Hall",
+      "description": "Mini Fridge in Good Condition",
+      "category": "Household Appliances",
+      "image": "/images/items/minifridge.JPG",
+      "owner": "jane@foo.com"
+    },
+
+    {
+      "firstName": "Nandita", "lastName": "Gervaise",  "itemName": "Skateboard", "address": "Gateway",
+      "description": "2nd hand skateboard. Minimal wear and tear",
+      "category": "Transportation",
+      "image": "/images/Daniel Sale Items/Daniel_Skateboard.jpeg",
+      "owner": "jane@foo.com"
+    },
+
+    {
+      "firstName": "Jim", "lastName": "Kim",  "itemName": "Rice Cooker", "address": "Rice Street",
+      "description": "Rice Cooker for sale.",
+      "category": "Household Appliances",
+      "image": "/images/items/ricecooker.JPG",
+      "owner": "jane@foo.com"
     }
+
   ],
 
   "defaultCategories": [
