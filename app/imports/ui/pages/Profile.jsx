@@ -31,27 +31,43 @@ class ListProfile extends React.Component {
     };
 
     const gridStyle = {
-      margin: '0',
-      padding: '0',
       paddingTop:'15px',
       height: '50%',
     };
 
     const container = {
-      float: 'left',
+      display: 'inline-block',
+      position: 'relative',
     }
 
     const menu = {
-      float: 'left',
-      height: '3%',
-      width: '175%',
+      display: 'inline-block',
+      position: 'relative',
+      height: '5%',
+      width: '180%',
       marginLeft: '-30%',
+      paddingLeft: '10px',
+    }
+
+    const item = {
+      marginLeft:'-30%',
+      height: '100%',
+      width: '180%',
+    }
+
+    const yourItems = {
+      marginTop: '5px',
+      marginBottom: '5px',
+      fontSize: '20px',
+      fontWeight: 'bold',
+      textAlign: 'center',
+
     }
 
     return (
         <div style={backgroundStyle}>
-        <Container style={container}>
-          <Grid container style={gridStyle}>
+        <Container style={container} className = "clear">
+          <Grid container style={gridStyle} className = "clear">
             <Grid.Row columns="two">
               <Grid.Column>
           <Card>
@@ -79,26 +95,20 @@ class ListProfile extends React.Component {
               </Grid.Column>
 
                 <Grid.Column>
-                <Menu style={menu} centered>
-                    <Menu.Item>
-                      <Dropdown item text="Listed Items">
-                        <Dropdown.Menu>
-                        </Dropdown.Menu>
-                      </Dropdown>
-                    </Menu.Item>
+                <Menu style={menu} centered className = "clear">
+                      <p style={yourItems}>
+                        Your Items
+                      </p>
                 </Menu>
+                  <Container>
+                    <Card.Group style={item}>
+                      {this.props.items.map((item, index) => <Item
+                          key={index}
+                          Items={Items}
+                          item={item}/>)}
+                    </Card.Group>
+                  </Container>
               </Grid.Column>
-
-              <Container>
-                <Header as="h2" textAlign="center">Hello World</Header>
-                <Card.Group>
-                  {this.props.items.map((item, index) => <Item
-                      key={index}
-                      Items={Items}
-                      item={item}/>)}
-                </Card.Group>
-              </Container>
-
             </Grid.Row>
           </Grid>
         </Container>
