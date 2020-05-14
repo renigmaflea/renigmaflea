@@ -5,7 +5,8 @@ import HomePageUserCarousel from '../components/HomePageUserCarousel';
 import { Link, NavLink } from 'react-router-dom';
 
 // from https://stackoverflow.com/questions/42094060/changing-shuffling-text-every-1-5-second-in-a-react-component
-const textArray = ['electronics', 'school supplies', 'household items', 'mopeds', 'laptops'];
+const textArray = ['electronics', 'school supplies', 'household items', 'mopeds',
+  'laptops', 'textbooks', 'mini fridge', 'gaming console'];
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -126,7 +127,7 @@ class Landing extends React.Component {
                       <Header style={hookText} color='green' content={textThatChanges}/>
                     </Transition>
                   </Segment>
-                  <Header style={hookText}>in your own backyard</Header>
+                  <Header style={hookText}>near you</Header>
 
                 </Grid.Column>
               </Grid.Row>
@@ -140,7 +141,7 @@ class Landing extends React.Component {
           </div>
           {/* second section */}
           <div style={{ color: 'white' }}>
-            <Grid style={{ height: '105vh' }} container columns='equal' textAlign='center' verticalAlign='middle'>
+            <Grid style={{ height: '109vh' }} container columns='equal' textAlign='center' verticalAlign='middle'>
               <Grid.Row>
 
                 <Grid.Column>
@@ -148,7 +149,7 @@ class Landing extends React.Component {
                   <Header style={featureTextButtom}>
                     No longer would UH Manoa students have to search several sites to buy or sell used items.
                     Rainbow Retail is an all-in-one platform created just for trading goods in the area around the
-                    campus. Users browse the wide selection of commonly sold items by fellow students.
+                    campus. Users can browse the wide selection of commonly sold items by fellow students.
                   </Header>
                 </Grid.Column>
 
@@ -160,14 +161,14 @@ class Landing extends React.Component {
             </Grid>
           </div>
           {/* third section */}
-          <div style={{ backgroundColor: '#4C9F70' }}>
-            <Grid style={{ height: '105vh' }} container columns='equal' textAlign='center' verticalAlign='middle'>
+          <div style={{ backgroundColor: '#2E8348' }}>
+            <Grid style={{ height: '109vh' }} container columns='equal' textAlign='center' verticalAlign='middle'>
               <Grid.Row style={{ height: '30%' }} >
                 <Grid.Column>
                   <Header style={userText}>Everything You Need for the Dorm Life</Header>
                   <Header style={userTextButtom}>
-                    Rainbow Retail lists all of the commonly bought and sold dorm supplies from fellow UH Students.
-                    You can expect a cheaper price and an easy access to the most essential items.
+                    Rainbow Retail hosts all of the commonly bought and sold dorm supplies from fellow UH Students.
+                    You can expect cheaper prices and easy access to the most essential items.
                   </Header>
                 </Grid.Column>
               </Grid.Row>
@@ -180,11 +181,11 @@ class Landing extends React.Component {
           </div>
           {/* forth section */}
           <div style={{ backgroundImage: `url(${'/images/pattern.jpg'})` }}>
-            <Grid style={{ height: '105vh' }} container columns='equal' textAlign='center' verticalAlign='middle'>
+            <Grid style={{ height: '109vh' }} container columns='equal' textAlign='center' verticalAlign='middle'>
               <Grid.Row style={{ height: '70%' }}>
                 <Grid.Column>
                   <Header style={askText}>
-                    Joing <span style={askTextGreen}>39</span> UH students in buying and selling <span style={askTextGreen}>86</span> individual campus goods
+                    Join your <span style={askTextGreen}>fellow UH students</span> in buying and selling campus goods
                   </Header>
                 </Grid.Column>
               </Grid.Row>
