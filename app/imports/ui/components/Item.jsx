@@ -108,12 +108,6 @@ class Item extends React.Component {
                 </Button>
                 <Button size='mini' onClick={() => this.removeItem(this.props.item._id)}>Delete</Button>
 
-<<<<<<< HEAD
-                {/*<Link to={`/profile/${this.props.item._id}`}>*/}
-                {/*  <Button size = 'mini' color='yellow' className="extra ui left floated primary button"><Icon*/}
-                {/*      name='star'/>Buy Items</Button></Link>*/}
-                {/*<Link to={`/profile/${this.props.item._id}`}><Button size = 'mini' color='yellow'><Icon*/}
-                {/*    name='star'/>Favorite</Button></Link>*/}
 
                 <Popup trigger={<Button size = 'mini' color='blue'>Share</Button>} flowing hoverable>
                   <Grid centered divided columns={3}>
@@ -136,19 +130,12 @@ class Item extends React.Component {
                   </Grid>
                 </Popup>
 
-                {/*<Button size = 'mini' color='blue'><Icon*/}
-                {/*    name='share square'/>Share</Button>*/}
-
-=======
                 <Link to={`/profile/${this.props.item._id}`}>
                   <Button size='mini' color='yellow' className="extra ui left floated primary button"><Icon
                       name='star'/>Buy Items</Button></Link>
                 <Link to={`/profile/${this.props.item._id}`}><Button size='mini' color='yellow'><Icon
                     name='star'/>Favorite</Button></Link>
-                <Link to={`/profile/${this.props.item._id}`}><Button size='mini' color='blue'><Icon
-                    name='share square'/>Share</Button></Link>
                 {this.test(this.props.item.category)}
->>>>>>> issue-68
 
                 {/*{this.props.notes.map((note, index) => <Note key={index} note={note}/>)}*/}
                 <div owner={this.props.item.owner} itemID={this.props.item._id}/>
