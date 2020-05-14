@@ -129,8 +129,6 @@ class Item extends React.Component {
                     </Grid.Column>
                   </Grid>
                 </Popup>
-
-
                 {this.test(this.props.item.category)}
 
                 {/*{this.props.notes.map((note, index) => <Note key={index} note={note}/>)}*/}
