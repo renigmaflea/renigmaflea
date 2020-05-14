@@ -109,7 +109,7 @@ class Item extends React.Component {
                 <Button size='mini' onClick={() => this.removeItem(this.props.item._id)}>Delete</Button>
 
 
-                <Popup trigger={<Button size = 'mini' color='blue'>Share</Button>} flowing hoverable>
+                <Popup trigger={<Button size='mini' color='blue'>Share</Button>} flowing hoverable>
                   <Grid centered divided columns={3}>
                     <Grid.Column textAlign='center'>
                       <form action="https://twitter.com/intent/tweet">
@@ -119,22 +119,16 @@ class Item extends React.Component {
                     </Grid.Column>
                     <Grid.Column textAlign='center'>
                       <form action="https://facebook.com">
-                        <input type="submit" value="Facebook" />
+                        <input type="submit" value="Facebook"/>
                       </form>
                     </Grid.Column>
                     <Grid.Column textAlign='center'>
                       <form action="https://instagram.com">
-                        <input type="submit" value="Instagram" />
+                        <input type="submit" value="Instagram"/>
                       </form>
                     </Grid.Column>
                   </Grid>
                 </Popup>
-
-                {/*<Link to={`/profile/${this.props.item._id}`}>*/}
-                {/*  <Button size='mini' color='yellow' className="extra ui left floated primary button"><Icon*/}
-                {/*      name='star'/>Buy Items</Button></Link>*/}
-                {/*<Link to={`/profile/${this.props.item._id}`}><Button size='mini' color='yellow'><Icon*/}
-                {/*    name='star'/>Favorite</Button></Link>*/}
                 {this.test(this.props.item.category)}
 
                 {/*{this.props.notes.map((note, index) => <Note key={index} note={note}/>)}*/}
